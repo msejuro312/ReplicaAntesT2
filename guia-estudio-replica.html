@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía de Estudio - ReplicaAntesT2 (Lista de Compra)</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, 'Segoe UI', Roboto, sans-serif; background: #f5f7fa; color: #1e293b; line-height: 1.7; padding: 0; }
+  .container { max-width: 1000px; margin: 0 auto; padding: 24px; }
+  h1 { font-size: 2rem; margin-bottom: 8px; color: #0f172a; }
+  h1 small { font-size: 1rem; font-weight: 400; color: #64748b; }
+  .subtitle { color: #475569; margin-bottom: 32px; font-size: 1.05rem; }
+  h2 { font-size: 1.5rem; margin-top: 48px; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 3px solid #3b82f6; color: #0f172a; }
+  h3 { font-size: 1.2rem; margin-top: 32px; margin-bottom: 12px; color: #1e293b; }
+  h4 { font-size: 1.05rem; margin-top: 24px; margin-bottom: 8px; color: #334155; }
+  p, li { margin-bottom: 10px; color: #334155; }
+  ul, ol { padding-left: 24px; margin-bottom: 16px; }
+  a { color: #2563eb; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  code { background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace; }
+  pre { background: #0f172a; color: #e2e8f0; padding: 20px; border-radius: 10px; overflow-x: auto; font-size: 0.85rem; line-height: 1.6; margin: 16px 0 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  pre .line-number { display: inline-block; width: 28px; text-align: right; margin-right: 16px; color: #475569; user-select: none; }
+  pre .highlight-line { background: rgba(59,130,246,0.15); display: block; margin: 0 -20px; padding: 0 20px; border-left: 3px solid #3b82f6; }
+  .tag   { color: #f472b6; }
+  .attr  { color: #a78bfa; }
+  .str   { color: #34d399; }
+  .kwd   { color: #f472b6; }
+  .cmt   { color: #64748b; font-style: italic; }
+  .num   { color: #fbbf24; }
+  .ann   { color: #60a5fa; }
+  .cls   { color: #22d3ee; }
+  .ifc   { color: #c084fc; }
+  .fn    { color: #facc15; }
+
+  .info-box { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 16px 20px; border-radius: 8px; margin: 16px 0 24px; }
+  .info-box strong { color: #1e40af; }
+  .warn-box { background: #fefce8; border-left: 4px solid #eab308; padding: 16px 20px; border-radius: 8px; margin: 16px 0 24px; }
+  .warn-box strong { color: #854d0e; }
+  .danger-box { background: #fef2f2; border-left: 4px solid #ef4444; padding: 16px 20px; border-radius: 8px; margin: 16px 0 24px; }
+  .danger-box strong { color: #991b1b; }
+
+  table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid #e2e8f0; }
+  th { background: #f1f5f9; font-weight: 600; color: #0f172a; }
+  tr:hover td { background: #f8fafc; }
+
+  .toc { background: white; border-radius: 12px; padding: 24px 28px; margin-bottom: 40px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .toc h2 { margin-top: 0; border-bottom: 0; }
+  .toc ol { margin-bottom: 0; }
+  .toc li { margin-bottom: 6px; }
+  .toc a { display: block; padding: 4px 0; }
+  .toc .sub-item { padding-left: 24px; }
+
+  .section-card { background: white; border-radius: 12px; padding: 28px 32px; margin-bottom: 32px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .badge { display: inline-block; background: #dbeafe; color: #1d4ed8; padding: 2px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 12px; }
+  .flow-arrow { text-align: center; font-size: 1.5rem; color: #94a3b8; margin: 8px 0; }
+  .summary-step { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 16px 20px; border-radius: 8px; margin: 12px 0; }
+  .summary-step strong { color: #166534; }
+
+  .postman { background: #fdf2f8; border-left: 4px solid #ec4899; padding: 16px 20px; border-radius: 8px; margin: 16px 0 24px; }
+  .postman strong { color: #9d174d; }
+  .postman pre { background: #312e81; }
+
+  @media (max-width: 640px) {
+    .container { padding: 12px; }
+    .section-card { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>Gu&iacute;a de Estudio: ReplicaAntesT2 <small>Spring Boot + JPA + MySQL + Spring Security</small></h1>
+<p class="subtitle">Mi r&eacute;plica reconstruida desde cero (a modo de estudio), basada en el proyecto del profesor <code>cibertec-demo</code> (carpeta <code>DAW1_Lista_Prueba</code>). Esta gu&iacute;a es el orden en el que <strong>yo</strong> debo crear cada archivo para recrear el proyecto.</p>
+
+<div class="toc">
+  <h2>&Iacute;ndice de navegaci&oacute;n</h2>
+  <ol>
+    <li><a href="#intro">Introducci&oacute;n: &iquest;Qu&eacute; hace este proyecto? &iquest;En qu&eacute; se diferencia del del profesor?</a></li>
+    <li><a href="#xampp">Orden para levantar XAMPP y crear la base de datos</a></li>
+    <li><a href="#pom">Paso 1: pom.xml &mdash; Configuraci&oacute;n del proyecto</a></li>
+    <li><a href="#properties">Paso 2: application.properties &mdash; Configuraci&oacute;n de la aplicaci&oacute;n</a></li>
+    <li><a href="#main">Paso 3: ReplicaAntesT2Application.java &mdash; Punto de entrada</a></li>
+    <li><a href="#entities">Paso 4: Entidades (modelo de datos y relaciones)</a>
+      <ol class="sub-item">
+        <li><a href="#usuario">Usuario.java</a></li>
+        <li><a href="#producto">Producto.java</a></li>
+        <li><a href="#lista-compra">ListaCompra.java</a></li>
+        <li><a href="#item-lista">ItemLista.java</a></li>
+      </ol>
+    </li>
+    <li><a href="#repos">Paso 5: Repositorios (acceso a datos)</a>
+      <ol class="sub-item">
+        <li><a href="#usuario-repo">UsuarioRepository.java</a></li>
+        <li><a href="#producto-repo">ProductoRepository.java</a></li>
+        <li><a href="#lista-repo">ListaCompraRepository.java</a></li>
+        <li><a href="#item-repo">ItemListaRepository.java</a></li>
+      </ol>
+    </li>
+    <li><a href="#service">Paso 6: Servicios y utilidades + Dudas resueltas</a>
+      <ol class="sub-item">
+        <li><a href="#usuario-srv">UsuarioService.java</a></li>
+        <li><a href="#producto-srv">ProductoService.java</a></li>
+        <li><a href="#formato-util">FormatoUtil.java</a></li>
+        <li><a href="#dudas">Dudas que me surgieron (resueltas)</a></li>
+      </ol>
+    </li>
+    <li><a href="#dto">Paso 7: DTO LoginRequest.java</a></li>
+    <li><a href="#controllers">Paso 8: Controladores REST (18 endpoints)</a>
+      <ol class="sub-item">
+        <li><a href="#auth-ctrl">AuthController.java</a></li>
+        <li><a href="#usuario-ctrl">UsuarioController.java</a></li>
+        <li><a href="#producto-ctrl">ProductoController.java</a></li>
+        <li><a href="#lista-ctrl">ListaCompraController.java</a></li>
+      </ol>
+    </li>
+    <li><a href="#config">Paso 9: Capa de configuraci&oacute;n</a>
+      <ol class="sub-item">
+        <li><a href="#security-config">SecurityConfig.java</a></li>
+        <li><a href="#login-interceptor">LoginInterceptor.java</a></li>
+        <li><a href="#web-config">WebConfig.java (tiene un error a corregir)</a></li>
+      </ol>
+    </li>
+    <li><a href="#postman">Paso 10: Pruebas con Postman (muy detallado)</a></li>
+    <li><a href="#resumen">Resumen: orden de creaci&oacute;n, pendientes y comandos</a></li>
+  </ol>
+</div>
+
+<!-- ============================================================ -->
+<div class="section-card" id="intro">
+  <h2>1. Introducci&oacute;n</h2>
+  <p>
+    Este proyecto es una <strong>API REST</strong> construida con <strong>Spring Boot 4 + JPA (Hibernate) + MySQL + Spring Security</strong>.
+    Simula una <strong>app de listas de compra</strong>: los usuarios se registran e inician sesi&oacute;n,
+    crean <strong>listas de compra</strong> y les agregan <strong>items</strong> (productos pendientes por comprar),
+    a los que pueden cambiarles el <strong>estado</strong> (PENDIENTE &rarr; COMPRADO). Adem&aacute;s gestiona un
+    cat&aacute;logo de <strong>productos</strong> con inserci&oacute;n por lotes, b&uacute;squeda y actualizaci&oacute;n.
+  </p>
+
+  <p><strong>&iquest;En qu&eacute; se diferencia de <code>cibertec-demo</code> (el del profesor)?</strong></p>
+  <table>
+    <tr><th>Aspecto</th><th>Profesor (<code>cibertec-demo</code>)</th><th>Mi r&eacute;plica (<code>ReplicaAntesT2</code>)</th></tr>
+    <tr><td>Paquete base</td><td><code>pe.cibertec</code></td><td><code>cibertec.demo</code></td></tr>
+    <tr><td>Clase principal</td><td><code>CibertecDemoApplication</code></td><td><code>ReplicaAntesT2Application</code></td></tr>
+    <tr><td>Puerto del servidor</td><td><code>8081</code></td><td><code>8080</code></td></tr>
+    <tr><td>Puerto MySQL</td><td><code>33065</code></td><td><code>3306</code> (el default de XAMPP)</td></tr>
+    <tr><td>Zona horaria</td><td><code>serverTimeZone</code> (mal escrito)</td><td><code>serverTimezone</code> (corregido)</td></tr>
+    <tr><td>M&eacute;todo de registro</td><td><code>registar</code> (typo)</td><td><code>registrar</code> (correcto)</td></tr>
+    <tr><td>Imports sin usar</td><td><code>Stack</code>, <code>Locale</code>, <code>Producto</code> en repos, <code>UsuarioRepository</code> en controllers</td><td>Limpios, sin imports sobrantes</td></tr>
+    <tr><td><code>filterChain</code> de Security</td><td>Incompleto (no compilaba)</td><td>Comentado (compila; usa seguridad por defecto)</td></tr>
+    <tr><td><code>WebConfig</code></td><td>Sin <code>@Configuration</code></td><td>Sin <code>@Configuration</code> (a&uacute;n no corregido)</td></tr>
+  </table>
+
+  <div class="info-box"><strong>Conclusi&oacute;n:</strong> la l&oacute;gica es id&eacute;ntica a la del profesor. Lo que cambia es el <em>nombrado</em> (paquetes, clase principal, puertos) y un par de correcciones que mejoran el original. Esas diferencias son las que debes recordar para el examen: el profesor eval&uacute;a la <strong>estructura y la l&oacute;gica</strong>, no los nombres exactos.</div>
+
+  <p><strong>Arquitectura en capas (el patr&oacute;n de todo el proyecto):</strong></p>
+  <pre style="font-size:0.9rem; background:#1e293b; text-align:center; padding:16px;">
+ Cliente HTTP (Postman / Navegador)
+      &darr;
+ Controladores (Controllers)      &larr;  Capa de API / entrada (Auth, Usuario, Producto, Lista)
+      &darr;
+ Servicios (Services) + Util      &larr;  Capa de negocio (UsuarioService, ProductoService, FormatoUtil)
+      &darr;
+ Repositorios (Repositories)      &larr;  Capa de datos (JPA / JPQL)
+      &darr;
+ Entidades (Entities)             &larr;  Modelo / Tablas BD (con relaciones)
+      &darr;
+ MySQL (Base de datos persistente)
+      |
+      &darr;
+ Capa de Configuraci&oacute;n (transversal): SecurityConfig, LoginInterceptor, WebConfig
+  </pre>
+  <div class="danger-box"><strong>Regla de oro de las capas:</strong>
+    El <strong>Controller NO implementa l&oacute;gica</strong>: solo expone el endpoint y <strong>llama</strong> al Service.
+    El <strong>Service</strong> contiene la l&oacute;gica de negocio y usa el <strong>Repository</strong>.
+    El <strong>Repository</strong> habla con la BD. La flecha siempre baja: Controller &rarr; Service &rarr; Repository &rarr; BD.
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<div class="section-card" id="xampp">
+  <h2>2. Orden para levantar XAMPP y crear la base de datos</h2>
+
+  <div class="info-box"><strong>&iquest;Qu&eacute; es XAMPP?</strong> Un paquete que trae Apache (servidor web) y MySQL (base de datos), entre otros. Nosotros solo usaremos <strong>Apache</strong> (para entrar a phpMyAdmin) y <strong>MySQL</strong> (donde vivira&aacute; la base de tu proyecto).</div>
+
+  <h3>Orden correcto, paso a paso</h3>
+  <ol>
+    <li><strong>Abre el panel de control de XAMPP</strong> (XAMPP Control Panel).</li>
+    <li>Pulsa <strong>Start</strong> en la fila de <strong>Apache</strong> y en la fila de <strong>MySQL</strong>. Ambos deben quedar en <strong>verde</strong> (si un puerto est&aacute; ocupado, ver&aacute;s un mensaje rojo; normalmente es porque otro servicio usa el 3306 o el 80).</li>
+    <li><strong>Desde la misma ventana de XAMPP:</strong> pulsa el bot&oacute;n <strong>Admin</strong> de la fila de <strong>Apache</strong>. Eso abre tu navegador en <code>http://localhost/phpmyadmin</code> autom&aacute;ticamente (no necesitas escribir la URL a mano). Si tu versi&oacute;n no muestra el bot&oacute;n, abre el navegador y escribe la URL directamente.</li>
+    <li>En phpMyAdmin, en el men&uacute; lateral izquierdo pulsa <strong>"Nueva"</strong> (o "New"), escribe el nombre <code>cibertec_demo</code> y pulsa <strong>Crear</strong>. No hace falta elegir "cotejamiento"; deja el que viene por defecto.</li>
+    <li><strong>Reci&eacute;n ahora</strong> corre el proyecto en IntelliJ.</li>
+  </ol>
+
+  <div class="warn-box"><strong>&iquest;Por qu&eacute; la base se crea ANTES que el proyecto?</strong>
+    Con <code>spring.jpa.hibernate.ddl-auto=create</code>, Hibernate crea (o recrea) las <strong>tablas</strong> al arrancar la app.
+    Pero <strong>NO crea la base de datos</strong>: la base <code>cibertec_demo</code> debe existir de antemano.
+    Si corres el proyecto sin la base, fallar&aacute; la conexi&oacute;n con un error tipo <em>"Unknown database 'cibertec_demo'"</em>.
+  </div>
+
+  <div class="warn-box"><strong>Ojo con <code>ddl-auto=create</code>:</strong> cada vez que arranques la app, Hibernate <strong>borra y recrea las tablas</strong> (los datos se pierden). Es c&oacute;modo en desarrollo; nunca lo uses as&iacute; en producci&oacute;n.</div>
+</div>
+
+<!-- ============================================================ -->
+<div class="section-card" id="pom">
+  <h2>3. Paso 1: pom.xml &mdash; Configuraci&oacute;n del proyecto</h2>
+
+  <div class="info-box"><strong>Prop&oacute;sito:</strong> Archivo de configuraci&oacute;n de Maven. Define las librer&iacute;as (dependencias), la versi&oacute;n y c&oacute;mo se compila.</div>
+
+  <p><strong>Mi c&oacute;digo (tal como est&aacute; en mi r&eacute;plica):</strong></p>
+  <pre>
+<span class="cmt">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+&lt;project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;groupId&gt;cibertec.demo&lt;/groupId&gt;
+    &lt;artifactId&gt;ReplicaAntesT2&lt;/artifactId&gt;
+    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+
+<span class="cmt">    &lt;!--Heredamos config de Spring Boot (no declaramos versiones)--&gt;</span>
+    &lt;parent&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+        &lt;version&gt;4.0.7&lt;/version&gt;
+    &lt;/parent&gt;
+
+    &lt;properties&gt;
+        &lt;maven.compiler.source&gt;24&lt;/maven.compiler.source&gt;
+        &lt;maven.compiler.target&gt;24&lt;/maven.compiler.target&gt;
+        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+    &lt;/properties&gt;
+
+    &lt;dependencies&gt;
+<span class="cmt">        &lt;!--Servicios web--&gt;</span>
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+<span class="cmt">        &lt;!--JPA--&gt;</span>
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+<span class="cmt">        &lt;!--Lombok--&gt;</span>
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+            &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+            &lt;optional&gt;true&lt;/optional&gt;
+        &lt;/dependency&gt;
+
+<span class="cmt">        &lt;!--Dev Tools--&gt;</span>
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;
+            &lt;scope&gt;runtime&lt;/scope&gt;
+        &lt;/dependency&gt;
+
+<span class="cmt">        &lt;!--MySQL--&gt;</span>
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.mysql&lt;/groupId&gt;
+            &lt;artifactId&gt;mysql-connector-j&lt;/artifactId&gt;
+            &lt;version&gt;8.3.0&lt;/version&gt;
+            &lt;scope&gt;runtime&lt;/scope&gt;
+        &lt;/dependency&gt;
+
+<span class="cmt">        &lt;!--Spring Security--&gt;</span>
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-security&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+&lt;/project&gt;</pre>
+
+  <h4>Dependencias y para qu&eacute; sirven</h4>
+  <table>
+    <tr><th>Dependencia</th><th>&iquest;Para qu&eacute; sirve?</th></tr>
+    <tr><td><code>spring-boot-starter-web</code></td><td>Controladores REST + Tomcat embebido + Jackson (JSON).</td></tr>
+    <tr><td><code>spring-boot-starter-data-jpa</code></td><td>Hibernate + JPA para mapear objetos a tablas.</td></tr>
+    <tr><td><code>lombok</code> (optional)</td><td>Genera getters, setters, constructores, <code>toString</code>, etc. autom&aacute;ticamente (con <code>@Data</code>).</td></tr>
+    <tr><td><code>spring-boot-devtools</code> (runtime)</td><td>Recarga autom&aacute;tica al modificar c&oacute;digo. Solo desarrollo.</td></tr>
+    <tr><td><code>mysql-connector-j</code> 8.3.0 (runtime)</td><td>Conector JDBC de MySQL. Declara su versi&oacute;n expl&iacute;cita porque el POM padre de Spring Boot no la gestiona.</td></tr>
+    <tr><td><code>spring-boot-starter-security</code></td><td>Seguridad de Spring: autenticaci&oacute;n, cifrado de claves, filtros.</td></tr>
+  </table>
+
+  <div class="info-box"><strong>Nota sobre H2:</strong> en proyectos anteriores (H2 en memoria) exist&iacute;a la dependencia <code>com.h2database:h2</code>. En este proyecto <strong>ya no existe</strong> porque se usa MySQL. Solo debe haber una base de datos activa a la vez.</div>
+</div>
+
+<!-- ============================================================ -->
+<div class="section-card" id="properties">
+  <h2>4. Paso 2: application.properties &mdash; Configuraci&oacute;n de la aplicaci&oacute;n</h2>
+
+  <div class="info-box"><strong>Prop&oacute;sito:</strong> Archivo que Spring Boot lee al iniciar: puerto, conexi&oacute;n a la BD y comportamiento de JPA/Hibernate.</div>
+
+  <p><strong>Mi c&oacute;digo:</strong></p>
+  <pre>
+<span class="cmt">#puerto del servidor</span>
+<span class="attr">server.port</span>=8080
+
+<span class="cmt">#Configuraci&oacute;n de MYSQL</span>
+<span class="attr">spring.datasource.url</span>=jdbc:mysql://localhost:3306/cibertec_demo?useSSL=false&amp;serverTimezone=America/Lima
+<span class="attr">spring.datasource.username</span>=root
+<span class="attr">spring.datasource.password</span>=
+
+<span class="cmt">#configuraciones del JPA</span>
+<span class="attr">spring.jpa.hibernate.ddl-auto</span>=create
+<span class="attr">spring.jpa.show-sql</span>=true
+<span class="attr">spring.jpa.properties.hibernate.format_sql</span>=true
+<span class="attr">spring.jpa.database-platform</span>=org.hibernate.dialect.MySQLDialect
+
+<span class="cmt">#Configuraci&oacute;n JPA / Hibernate avanzados</span>
+<span class="attr">spring.jpa.properties.hibernate.jdbc.batch_size</span>=10
+<span class="attr">spring.jpa.properties.hibernate.order_inserts</span>=true
+<span class="attr">spring.jpa.properties.hibernate.order_updates</span>=true
+<span class="attr">spring.jpa.properties.hibernate.generate_statistics</span>=true
+<span class="attr">spring.jpa.properties.hibernate.cache.use_query_cache</span>=true
+<span class="attr">spring.jpa.properties.hibernate.cache.use_second_level_cache</span>=true
+<span class="attr">spring.jpa.properties.hibernate.cache.region.factory_class</span>=org.hibernate.cache.internal.NoCachingRegionFactory</pre>
+
+  <h4>Claves a entender</h4>
+  <ul>
+    <li><code>server.port=8080</code> &rarr; Tomcat escuchar&aacute; en el puerto <strong>8080</strong>. Accedes a <code>http://localhost:8080</code>.</li>
+    <li><code>jdbc:mysql://localhost:3306/cibertec_demo</code> &rarr; MySQL en <strong>localhost:3306</strong> (puerto por defecto de XAMPP) y base llamada <code>cibertec_demo</code>. <strong>La base debe existir antes de arrancar</strong>.</li>
+    <li><code>useSSL=false</code> &rarr; desactiva SSL (solo desarrollo).</li>
+    <li><code>serverTimezone=America/Lima</code> &rarr; zona horaria. <strong>Ojo:</strong> el profesor la ten&iacute;a como <code>serverTimeZone</code> (con "zone" en may&uacute;scula) y eso causaba problemas; la forma correcta es <code>serverTimezone</code>.</li>
+    <li><code>ddl-auto=create</code> &rarr; Hibernate crea las tablas al iniciar (las borra al cerrar). Cuidado en producci&oacute;n.</li>
+    <li><code>show-sql=true</code> + <code>format_sql=true</code> &rarr; muestra el SQL en consola, indentado y legible.</li>
+    <li><code>MySQLDialect</code> &rarr; le dice a Hibernate qu&eacute; dialecto SQL usar.</li>
+    <li><code>batch_size=10</code> + <code>order_inserts</code>/<code>order_updates</code> &rarr; agrupa operaciones en lotes (optimizaci&oacute;n del batching).</li>
+    <li><code>generate_statistics=true</code> &rarr; muestra estad&iacute;sticas de Hibernate en consola.</li>
+    <li><code>NoCachingRegionFactory</code> &rarr; declara que NO se usa cach&eacute; de segundo nivel (contradice a las l&iacute;neas de cache activadas; son configuraciones de pr&aacute;ctica).</li>
+  </ul>
+</div>
+
+<!-- ============================================================ -->
+<div class="section-card" id="main">
+  <h2>5. Paso 3: ReplicaAntesT2Application.java &mdash; Punto de entrada</h2>
+
+  <div class="info-box"><strong>Prop&oacute;sito:</strong> Clase principal que arranca la aplicaci&oacute;n Spring Boot. Se escribe a mano (proyecto Maven "pelado", sin Spring Initializr), igual que la estructura de carpetas <code>src/main/java/cibertec/demo</code>.</div>
+
+  <pre>
+<span class="kwd">package</span> cibertec.demo;
+
+<span class="kwd">import</span> org.springframework.boot.SpringApplication;
+<span class="kwd">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;
+
+<span class="ann">@SpringBootApplication</span>
+<span class="kwd">public class</span> <span class="cls">ReplicaAntesT2Application</span> {
+    <span class="kwd">public static void</span> <span class="fn">main</span>(String[] args){
+        SpringApplication.<span class="fn">run</span>(ReplicaAntesT2Application.class, args);
+    }
+}</pre>
+
+  <table>
+    <tr><th>Elemento</th><th>&iquest;Qu&eacute; hace?</th></tr>
+    <tr><td><code>@SpringBootApplication</code></td><td>Atajo de <code>@Configuration</code> + <code>@EnableAutoConfiguration</code> + <code>@ComponentScan</code>.</td></tr>
+    <tr><td><code>SpringApplication.run(...)</code></td><td>Arranca Spring Boot: crea el contexto, inicia Tomcat, conecta MySQL, escanea componentes.</td></tr>
+  </table>
+
+  <div class="warn-box"><strong>Importante:</strong> la clase principal est&aacute; en <code>cibertec.demo</code>. El <em>component scan</em> buscar&aacute; controladores, servicios, repositorios y clases de configuraci&oacute;n en ese paquete y sus subpaquetes. Por eso <code>cibertec.demo.config</code>, <code>cibertec.demo.controllers</code>, etc. deben estar DENTRO de <code>cibertec.demo</code>; si no, Spring no los detecta.</div>
+</div>
+
+<!-- ============================================================ -->
+<div class="section-card" id="entities">
+  <h2>6. Paso 4: Entidades &mdash; Modelo de datos y relaciones</h2>
+
+  <p>Las entidades son clases Java que representan <strong>tablas</strong>. Aqu&iacute; adem&aacute;s vemos <strong>relaciones</strong> entre tablas.</p>
+
+  <pre style="font-size:0.85rem; background:#1e293b; text-align:center; padding:16px;">
+   usuarios  &mdash;&mdash;1&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;M&mdash;&mdash;  listas_compra  &mdash;&mdash;1&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;M&mdash;&mdash;  items_lista
+   (Usuario)                    (ListaCompra)                     (ItemLista)
+
+   productos  (tabla independiente, sin relaci&oacute;n)
+  </pre>
+
+  <table>
+    <tr><th>Tabla / Clase</th><th>Relaci&oacute;n</th><th>Frase "de negocio"</th></tr>
+    <tr><td><code>usuarios</code></td><td>&mdash;</td><td>Un usuario existe sin listas.</td></tr>
+    <tr><td><code>listas_compra</code></td><td><code>@ManyToOne</code> Usuario + <code>@OneToMany</code> items</td><td>Un usuario tiene <strong>muchas</strong> listas; una lista <strong>pertenece a un</strong> usuario. Una lista tiene <strong>muchos</strong> items.</td></tr>
+    <tr><td><code>items_lista</code></td><td><code>@ManyToOne</code> ListaCompra</td><td>Un item <strong>pertenece a una</strong> lista.</td></tr>
+  </table>
+
+  <div class="info-box"><strong>&iquest;Y por qu&eacute; existen tablas con nombres distintos a las clases?</strong>
+    Porque se usa <code>@Table(name = "...")</code>. La clase <code>ListaCompra</code> &rarr; tabla <code>listas_compra</code>,
+    la clase <code>ItemLista</code> &rarr; tabla <code>items_lista</code>. Sin <code>@Table</code>, Hibernate usar&iacute;a el nombre de la clase tal cual.
+  </div>
+
+  <h3 id="usuario">6.1. Usuario.java</h3>
+  <pre>
+<span class="kwd">package</span> cibertec.demo.entities;
+
+<span class="kwd">import</span> jakarta.persistence.*;
+<span class="kwd">import</span> lombok.Data;
+
+<span class="ann">@Data</span>
+<span class="ann">@Entity</span>
+<span class="ann">@Table</span>(name = <span class="str">"usuarios"</span>)
+<span class="kwd">public class</span> <span class="cls">Usuario</span> {
+    <span class="ann">@Id</span>
+    <span class="ann">@GeneratedValue</span>(strategy = GenerationType.<span class="fn">IDENTITY</span>)
+    <span class="kwd">private</span> Long id;
+
+    <span class="ann">@Column</span>(nullable = <span class="kwd">false</span>)
+    <span class="kwd">private</span> String nombre;
+
+    <span class="ann">@Column</span>(nullable = <span class="kwd">false</span>)
+    <span class="kwd">private</span> String correo;
+
+    <span class="ann">@Column</span>(nullable = <span class="kwd">false</span>)
+    <span class="kwd">private</span> String clave;
+}</pre>
+
+  <h3 id="producto">6.2. Producto.java</h3>
+  <div class="info-box"><strong>Prop&oacute;sito:</strong> Guarda nombre, precio y usa <code>@Version</code> para <strong>control de concurrencia optimista</strong>.</div>
+  <pre>
+<span class="kwd">package</span> cibertec.demo.entities;
+
+<span class="kwd">import</span> jakarta.persistence.*;
+<span class="kwd">import</span> lombok.Data;
+
+<span class="ann">@Data</span>
+<span class="ann">@Entity</span>
+<span class="ann">@Table</span>(name = <span class="str">"productos"</span>)
+<span class="kwd">public class</span> <span class="cls">Producto</span> {
+    <span class="ann">@Id</span>
+    <span class="ann">@GeneratedValue</span>(strategy = GenerationType.<span class="fn">IDENTITY</span>)
+    <span class="kwd">private</span> Long id;
+    <span class="kwd">private</span> String nombre;
+    <span class="kwd">private</span> Double precio;
+
+    <span class="cmt">//bloqueo de concurruencia optimista</span>
+    <span class="ann">@Version</span>
+    <span class="kwd">private</span> Integer version;
+}</pre>
+
+  <div class="info-box"><strong>&iquest;Qu&eacute; es <code>@Version</code>?</strong>
+    Implementa <strong>bloqueo optimista</strong>: Hibernate incrementa <code>version</code> en cada UPDATE.
+    Si dos peticiones intentan actualizar la misma fila con una versi&oacute;n vieja, la segunda lanza
+    <code>OptimisticLockException</code>. Evita que se sobrescriban cambios entre s&iacute;.
+  </div>
+
+  <h3 id="lista-compra">6.3. ListaCompra.java</h3>
+  <div class="info-box"><strong>Prop&oacute;sito:</strong> Es el <strong>centro</strong> del modelo: une a un <code>Usuario</code> con sus <code>ItemLista</code>.</div>
+  <pre>
+<span class="kwd">package</span> cibertec.demo.entities;
+
+<span class="kwd">import</span> jakarta.persistence.*;
+<span class="kwd">import</span> lombok.Data;
+
+<span class="kwd">import</span> java.time.LocalDateTime;
+<span class="kwd">import</span> java.util.List;
+
+<span class="ann">@Data</span>
+<span class="ann">@Entity</span>
+<span class="ann">@Table</span>(name = <span class="str">"listas_compra"</span>)
+<span class="kwd">public class</span> <span class="cls">ListaCompra</span> {
+    <span class="ann">@Id</span>
+    <span class="ann">@GeneratedValue</span>(strategy = GenerationType.<span class="fn">IDENTITY</span>)
+    <span class="kwd">private</span> Long id;
+    <span class="kwd">private</span> String titulo;
+    <span class="kwd">private</span> LocalDateTime fechaCreacion = LocalDateTime.<span class="fn">now</span>();
+
+    <span class="ann">@ManyToOne</span>
+    <span class="kwd">private</span> Usuario usuario;
+
+    <span class="ann">@OneToMany</span>(mappedBy = <span class="str">"lista"</span>, cascade = CascadeType.<span class="fn">ALL</span>, orphanRemoval = <span class="kwd">true</span>)
+    <span class="kwd">private</span> List&lt;ItemLista&gt; items;
+}</pre>
+
+  <h4>Anotaciones nuevas</h4>
+  <table>
+    <tr><th>Anotaci&oacute;n</th><th>&iquest;Qu&eacute; hace?</th></tr>
+    <tr><td><code>LocalDateTime fechaCreacion = LocalDateTime.now()</code></td><td>Al crear la lista, se asigna autom&aacute;ticamente la fecha/hora actual.</td></tr>
+    <tr><td><code>@ManyToOne</code> sobre <code>Usuario</code></td><td>"Muchas listas pertenecen a un usuario". Crea una columna FK <code>usuario_id</code> que apunta a <code>usuarios.id</code>.</td></tr>
+    <tr><td><code>@OneToMany(mappedBy = "lista", ...)</code></td><td>"Una lista tiene muchos items". <code>mappedBy="lista"</code> indica que la relaci&oacute;n est&aacute; definida del otro lado (en <code>ItemLista.lista</code>). El lado <code>@OneToMany</code> es el <strong>inverso</strong>, no crea columna extra.</td></tr>
+    <tr><td><code>cascade = CascadeType.ALL</code></td><td>Si guardas una <code>ListaCompra</code>, sus <code>items</code> se guardan autom&aacute;ticamente con ella.</td></tr>
+    <tr><td><code>orphanRemoval = true</code></td><td>Si eliminas un item de la lista, ese item se borra de la BD (los "hu&eacute;rfanos" se eliminan).</td></tr>
+  </table>
+
+  <h3 id="item-lista">6.4. ItemLista.java</h3>
+  <pre>
+<span class="kwd">package</span> cibertec.demo.entities;
+
+<span class="kwd">import</span> com.fasterxml.jackson.annotation.JsonIgnore;
+<span class="kwd">import</span> jakarta.persistence.*;
+<span class="kwd">import</span> lombok.Data;
+
+<span class="ann">@Data</span>
+<span class="ann">@Entity</span>
+<span class="ann">@Table</span>(name = <span class="str">"items_lista"</span>)
+<span class="kwd">public class</span> <span class="cls">ItemLista</span> {
+    <span class="ann">@Id</span>
+    <span class="ann">@GeneratedValue</span>(strategy = GenerationType.<span class="fn">IDENTITY</span>)
+    <span class="kwd">private</span> Long id;
+    <span class="kwd">private</span> String nombreProducto;
+    <span class="kwd">private</span> Integer cantidad;
+    <span class="kwd">private</span> String estado = <span class="str">"PENDIENTE"</span>;
+
+    <span class="ann">@ManyToOne</span>
+    <span class="ann">@JoinColumn</span>(name = <span class="str">"lista_id"</span>)
+    <span class="ann">@JsonIgnore</span>
+    <span class="kwd">private</span> ListaCompra lista;
+}</pre>
+
+  <table>
+    <tr><th>Elemento</th><th>&iquest;Qu&eacute; hace?</th></tr>
+    <tr><td><code>String estado = "PENDIENTE"</code></td><td>Al crear un item sin especificar estado, se asigna <code>"PENDIENTE"</code> por defecto.</td></tr>
+    <tr><td><code>@ManyToOne</code> sobre <code>ListaCompra lista</code></td><td>"Muchos items pertenecen a una lista". Este es el lado <strong>due&ntilde;o</strong>: aqu&iacute; se guarda la llave for&aacute;nea.</td></tr>
+    <tr><td><code>@JoinColumn(name = "lista_id")</code></td><td>Define el nombre de la columna FK: <code>lista_id</code>.</td></tr>
+    <tr><td><code>@JsonIgnore</code></td><td>Jackson no incluye el objeto <code>lista</code> al serializar un item. Evita respuestas infinitas o gigantes (item &rarr; lista &rarr; items &rarr; lista...).</td></tr>
+  </table>
+
+  <div class="warn-box"><strong>Conceptos clave de las relaciones:</strong>
+    <ul>
+      <li><strong>Lado due&ntilde;o vs inverso:</strong> la FK se guarda en el lado <code>@ManyToOne</code>. El <code>@OneToMany(mappedBy=...)</code> solo "lee" y no crea columnas.</li>
+      <li><strong>mappedBy:</strong> apunta al <em>nombre del atributo</em> en la otra clase. Aqu&iacute; <code>mappedBy="lista"</code> referencia a <code>ItemLista.lista</code>.</li>
+      <li><strong>Cascade:</strong> propaga operaciones (guardar, borrar...) de la lista a sus items.</li>
+      <li><strong>@Data y relaciones:</strong> genera <code>toString()</code>/<code>equals()</code>/<code>hashCode()</code> con todos los campos; con lazy loading puede dar problemas. En proyectos grandes se usa <code>@Getter @Setter</code> + <code>@ToString.Exclude</code>.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<div class="section-card" id="repos">
+  <h2>7. Paso 5: Repositorios &mdash; Acceso a datos</h2>
+
+  <p>Los repositorios son interfaces que Spring Data JPA implementa solo. Existen <strong>dos formas</strong> de definir consultas:</p>
+  <ul>
+    <li><strong>Query Methods:</strong> Spring interpreta el nombre del m&eacute;todo (<code>findByCorreo</code>, <code>findByUsuarioId</code>).</li>
+    <li><strong>@Query (JPQL):</strong> escribes la consulta manualmente sobre las <em>clases</em>, con <code>:parametro</code> y <code>@Param</code>.</li>
+  </ul>
+
+  <h3 id="usuario-repo">7.1. UsuarioRepository.java</h3>
+  <pre>
+<span class="kwd">package</span> cibertec.demo.repository;
+
+<span class="kwd">import</span> cibertec.demo.entities.Usuario;
+<span class="kwd">import</span> org.springframework.data.jpa.repository.JpaRepository;
+
+<span class="kwd">import</span> java.util.Optional;
+
+<span class="kwd">public interface</span> <span class="ifc">UsuarioRepository</span> <span class="kwd">extends</span> <span class="ifc">JpaRepository</span>&lt;Usuario, Long&gt; {
+    Optional&lt;Usuario&gt; <span class="fn">findByCorreo</span>(String correo);
+}</pre>
+  <p><code>findByCorreo</code> genera <code>SELECT * FROM usuarios WHERE correo = ?</code>. Devuelve <code>Optional</code> porque el correo podr&iacute;a no existir (evita el <code>NullPointerException</code>). Se usa en el login.</p>
+
+  <h3 id="producto-repo">7.2. ProductoRepository.java</h3>
+  <pre>
+<span class="kwd">package</span> cibertec.demo.repository;
+
+<span class="kwd">import</span> cibertec.demo.entities.Producto;
+<span class="kwd">import</span> org.springframework.data.jpa.repository.JpaRepository;
+<span class="kwd">import</span> org.springframework.data.jpa.repository.Query;
+<span class="kwd">import</span> org.springframework.data.repository.query.Param;
+
+<span class="kwd">import</span> java.util.List;
+
+<span class="kwd">public interface</span> <span class="ifc">ProductoRepository</span> <span class="kwd">extends</span> <span class="ifc">JpaRepository</span>&lt;Producto, Long&gt; {
+    List&lt;Producto&gt; <span class="fn">findByNombre</span>(String nombre);
+
+    <span class="ann">@Query</span>(<span class="str">"SELECT p FROM Producto p WHERE LOWER(p.nombre) LIKE LOWER(concat('%',:texto,'%'))"</span>)
+    List&lt;Producto&gt; <span class="fn">buscarPorNombre</span>(<span class="ann">@Param</span>(<span class="str">"texto"</span>) String texto);
+}</pre>
+  <ul>
+    <li><code>findByNombre</code> &rarr; b&uacute;squeda <strong>exacta</strong>: <code>WHERE nombre = ?</code>.</li>
+    <li><code>@Query</code> &rarr; b&uacute;squeda <strong>parcial (LIKE)</strong> e insensible a may&uacute;sculas. <code>concat('%',:texto,'%')</code> rodea el texto con <code>%</code>; <code>LOWER(...)</code> fuerza min&uacute;sculas de ambos lados.</li>
+    <li><code>@Param("texto")</code> &rarr; conecta el par&aacute;metro Java <code>texto</code> con <code>:texto</code> del JPQL.</li>
+  </ul>
+
+  <h3 id="lista-repo">7.3. ListaCompraRepository.java</h3>
+  <pre>
+<span class="kwd">package</span> cibertec.demo.repository;
+
+<span class="kwd">import</span> cibertec.demo.entities.ListaCompra;
+<span class="kwd">import</span> org.springframework.data.domain.Page;
+<span class="kwd">import</span> org.springframework.data.domain.Pageable;
+<span class="kwd">import</span> org.springframework.data.jpa.repository.JpaRepository;
+
+<span class="kwd">import</span> java.util.List;
+
+<span class="kwd">public interface</span> <span class="ifc">ListaCompraRepository</span> <span class="kwd">extends</span> <span class="ifc">JpaRepository</span>&lt;ListaCompra, Long&gt; {
+    List&lt;ListaCompra&gt; <span class="fn">findByUsuarioId</span>(Long idUsuario);
+    Page&lt;ListaCompra&gt; <span class="fn">findByUsuarioId</span>(Long idUsuario, Pageable pageable);
+}</pre>
+  <p>Dos m&eacute;todos con el <strong>mismo nombre</strong> pero distinta firma (<strong>sobrecarga</strong>):</p>
+  <ul>
+    <li>Sin <code>Pageable</code> &rarr; devuelve <code>List&lt;ListaCompra&gt;</code> (todas). Lo usa el endpoint de <code>historial</code>.</li>
+    <li>Con <code>Pageable</code> &rarr; devuelve <code>Page&lt;ListaCompra&gt;</code> (una p&aacute;gina, con totales). Lo usan los endpoints paginados.</li>
+  </ul>
+  <p><code>findByUsuarioId</code> genera <code>WHERE usuario_id = ?</code>. Nota: <code>UsuarioId</code> se refiere al atributo <code>usuario.id</code> (navegaci&oacute;n por propiedades).</p>
+
+  <h3 id="item-repo">7.4. ItemListaRepository.java</h3>
+  <pre>
+<span class="kwd">package</span> cibertec.demo.repository;
+
+<span class="kwd">import</span> cibertec.demo.entities.ItemLista;
+<span class="kwd">import</span> org.springframework.data.jpa.repository.JpaRepository;
+<span class="kwd">import</span> org.springframework.data.jpa.repository.Query;
+<span class="kwd">import</span> org.springframework.data.repository.query.Param;
+
+<span class="kwd">import</span> java.util.List;
+
+<span class="kwd">public interface</span> <span class="ifc">ItemListaRepository</span> <span class="kwd">extends</span> <span class="ifc">JpaRepository</span>&lt;ItemLista, Long&gt; {
+    <span class="ann">@Query</span>(<span class="str">"SELECT i FROM ItemLista i WHERE i.lista.id =:idLista"</span>)
+    List&lt;ItemLista&gt; <span class="fn">detalleLista</span>(<span class="ann">@Param</span>(<span class="str">"idLista"</span>) Long idLista);
+
+    <span class="ann">@Query</span>(<span class="str">"SELECT i FROM ItemLista i WHERE i.lista.id =:idLista AND i.estado = :estado"</span>)
+    List&lt;ItemLista&gt; <span class="fn">buscarPorEstado</span>(<span class="ann">@Param</span>(<span class="str">"idLista"</span>) Long idLista, <span class="ann">@Param</span>(<span class="str">"estado"</span>) String estado);
+}</pre>
+  <p>En JPQL se navega con <em>puntos</em>: <code>i.lista.id</code> equivale a <code>item.lista.id</code>. <code>buscarPorEstado</code> filtra adem&aacute;s por estado (<code>PENDIENTE</code>, <code>COMPRADO</code>, etc.).</p>
+
+  <div class="info-box"><strong>JPQL vs SQL:</strong> JPQL consulta <em>clases y atributos</em> (<code>Producto p</code>, <code>i.estado</code>); SQL consulta <em>tablas y columnas</em>. Hibernate traduce uno a otro.</div>
+</div>
+
+<!-- ============================================================ -->
+<div class="section-card" id="service">
+  <h2>8. Paso 6: Servicios y utilidades + Dudas resueltas</h2>
+
+  <h3 id="usuario-srv">8.1. UsuarioService.java</h3>
+  <div class="info-box"><strong>Prop&oacute;sito:</strong> L&oacute;gica de negocio de usuarios: registrar, listar, obtener por id y <strong>login</strong>.</div>
+
+  <pre>
+<span class="kwd">package</span> cibertec.demo.service;
+
+<span class="kwd">import</span> cibertec.demo.entities.Usuario;
+<span class="kwd">import</span> cibertec.demo.repository.UsuarioRepository;
+<span class="kwd">import</span> org.springframework.stereotype.Service;
+
+<span class="kwd">import</span> java.util.List;
+
+<span class="ann">@Service</span>
+<span class="kwd">public class</span> <span class="cls">UsuarioService</span> {
+    <span class="kwd">private final</span> UsuarioRepository usuarioRepository;
+
+    <span class="kwd">public</span> <span class="fn">UsuarioService</span>(UsuarioRepository usuarioRepository) {
+        <span class="kwd">this</span>.usuarioRepository = usuarioRepository;
+    }
+
+    <span class="kwd">public</span> Usuario <span class="fn">registrar</span>(Usuario usuario){
+        <span class="kwd">return</span> usuarioRepository.<span class="fn">save</span>(usuario);
+    }
+
+    <span class="kwd">public</span> List&lt;Usuario&gt; <span class="fn">listar</span>(){
+        <span class="kwd">return</span> usuarioRepository.<span class="fn">findAll</span>();
+    }
+
+    <span class="kwd">public</span> Usuario <span class="fn">obtener</span>(Long id){
+        <span class="kwd">return</span> usuarioRepository.<span class="fn">findById</span>(id).<span class="fn">orElse</span>(<span class="kwd">null</span>);
+    }
+
+    <span class="kwd">public</span> Usuario <span class="fn">login</span>(String correo, String clave){
+        Usuario usuario = usuarioRepository.<span class="fn">findByCorreo</span>(correo).<span class="fn">orElse</span>(<span class="kwd">null</span>);
+        <span class="kwd">if</span>(usuario != <span class="kwd">null</span> &amp;&amp; usuario.<span class="fn">getClave</span>().<span class="fn">equals</span>(clave)){
+            <span class="kwd">return</span> usuario;
+        }
+        <span class="kwd">return</span> <span class="kwd">null</span>;
+    }
+}</pre>
+
+  <ul>
+    <li><strong>Inyecci&oacute;n por constructor</strong> con campo <code>final</code>: patr&oacute;n recomendado.</li>
+    <li><code>obtener()</code> usa <code>Optional.orElse(null)</code>: si no existe, devuelve <code>null</code> (el controlador decide si responder 404).</li>
+    <li><code>login()</code>: busca por correo y compara la clave (en este proyecto, en texto plano &mdash; el profesor tambi&eacute;n lo hac&iacute;a as&iacute;).</li>
+    <li><strong>Diferencias vs el profesor:</strong> yo no copi&eacute; el import in&uacute;til <code>java.util.Stack</code>, y mi m&eacute;todo se llama <code>registrar</code> (el profesor ten&iacute;a <code>registar</code>, un typo).</li>
+  </ul>
+
+  <h3 id="producto-srv">8.2. ProductoService.java</h3>
+  <div class="info-box"><strong>Prop&oacute;sito:</strong> Inserci&oacute;n por lotes (batching) con normalizaci&oacute;n, listado optimizado y b&uacute;squeda.</div>
+
+  <pre>
+<span class="kwd">package</span> cibertec.demo.service;
+
+<span class="kwd">import</span> cibertec.demo.entities.Producto;
+<span class="kwd">import</span> cibertec.demo.repository.ProductoRepository;
+<span class="kwd">import</span> cibertec.demo.util.FormatoUtil;
+<span class="kwd">import</span> jakarta.persistence.EntityManager;
+<span class="kwd">import</span> jakarta.persistence.PersistenceContext;
+<span class="kwd">import</span> jakarta.transaction.Transactional;
+<span class="kwd">import</span> org.springframework.stereotype.Service;
+
+<span class="kwd">import</span> java.util.List;
+
+<span class="ann">@Service</span>
+<span class="kwd">public class</span> <span class="cls">ProductoService</span> {
+
+    <span class="kwd">private final</span> ProductoRepository productoRepository;
+    <span class="kwd">private final</span> FormatoUtil formatoUtil;
+
+    <span class="ann">@PersistenceContext</span>
+    <span class="kwd">private</span> EntityManager em;
+
+    <span class="kwd">public</span> <span class="fn">ProductoService</span>(ProductoRepository productoRepository, FormatoUtil formatoUtil) {
+        <span class="kwd">this</span>.productoRepository = productoRepository;
+        <span class="kwd">this</span>.formatoUtil = formatoUtil;
+    }
+
+    <span class="cmt">//Inserci&oacute;n por lotes (batching)</span>
+    <span class="ann">@Transactional</span>
+    <span class="kwd">public void</span> <span class="fn">registrarLote</span>(List&lt;Producto&gt; productos){
+        <span class="kwd">int</span> i = <span class="num">0</span>;
+        <span class="kwd">for</span> (Producto p : productos){
+            p.<span class="fn">setNombre</span>(formatoUtil.<span class="fn">capitalizar</span>(p.<span class="fn">getNombre</span>()));
+            em.<span class="fn">persist</span>(p);
+            i++;
+            <span class="kwd">if</span> (i % <span class="num">10</span> == <span class="num">0</span>) {
+                em.<span class="fn">flush</span>();
+                em.<span class="fn">clear</span>();
+            }
+        }
+    }
+
+    <span class="kwd">public</span> List&lt;Producto&gt; <span class="fn">listarTodos</span>(){
+        <span class="kwd">return</span> em.<span class="fn">createQuery</span>(<span class="str">"SELECT p FROM Producto p"</span>, Producto.class)
+                .<span class="fn">setHint</span>(<span class="str">"org.hibernate.fetchSize"</span>, <span class="num">5</span>)<span class="cmt">//lee de 5 en 5</span>
+                .<span class="fn">getResultList</span>();
+    }
+
+    <span class="kwd">public</span> List&lt;Producto&gt; <span class="fn">buscar</span>(String nombre){
+        <span class="kwd">return</span> productoRepository.<span class="fn">findByNombre</span>(nombre);
+    }
+}</pre>
+
+  <h4>Elementos clave</h4>
+  <table>
+    <tr><th>Elemento</th><th>&iquest;Qu&eacute; hace?</th></tr>
+    <tr><td><code>@Service</code></td><td>Marca la clase como l&oacute;gica de negocio; Spring la detecta y gestiona.</td></tr>
+    <tr><td><code>@PersistenceContext EntityManager em</code></td><td>Inyecta el gestor de persistencia de JPA para operaciones de bajo nivel (<code>persist</code>, <code>flush</code>, <code>clear</code>, <code>createQuery</code>).</td></tr>
+    <tr><td><code>@Transactional</code></td><td>Envuelve el m&eacute;todo en una transacci&oacute;n: si algo falla, se revierte todo. Imprescindible para el batching.</td></tr>
+    <tr><td><code>formatoUtil.capitalizar(...)</code></td><td>Normaliza el nombre antes de guardarlo (primera letra en may&uacute;scula).</td></tr>
+    <tr><td><code>em.persist(p)</code></td><td>Marca el producto para inserci&oacute;n (a&uacute;n no va a la BD).</td></tr>
+    <tr><td><code>em.flush()</code> / <code>em.clear()</code></td><td>Cada 10 productos: <em>flush</em> env&iacute;a el lote a la BD y <em>clear</em> limpia la cach&eacute; de Hibernate.</td></tr>
+    <tr><td><code>setHint("org.hibernate.fetchSize", 5)</code></td><td>Hint de JDBC: lee los resultados de 5 en 5.</td></tr>
+  </table>
+
+  <div class="warn-box"><strong>Error com&uacute;n:</strong> olvidar <code>@Transactional</code> en <code>registrarLote()</code>. Sin ella, cada <code>persist()</code> har&iacute;a su propia transacci&oacute;n y el batching perder&iacute;a su sentido.</div>
+
+  <h3 id="formato-util">8.3. FormatoUtil.java</h3>
+  <div class="info-box"><strong>Prop&oacute;sito:</strong> Clase utilitaria con funciones reutilizables. Aqu&iacute; tiene una: capitalizar texto.</div>
+
+  <pre>
+<span class="kwd">package</span> cibertec.demo.util;
+
+<span class="kwd">import</span> org.springframework.stereotype.Component;
+
+<span class="ann">@Component</span>
+<span class="kwd">public class</span> <span class="cls">FormatoUtil</span> {
+    <span class="cmt">//primera letra en may&uacute;scula y el resto en min&uacute;scula</span>
+    <span class="kwd">public</span> String <span class="fn">capitalizar</span>(String texto){
+        <span class="kwd">if</span>(texto == <span class="kwd">null</span> || texto.<span class="fn">isEmpty</span>()) <span class="kwd">return</span> texto;
+        <span class="kwd">return</span> texto.<span class="fn">substring</span>(<span class="num">0</span>, <span class="num">1</span>).<span class="fn">toUpperCase</span>() + texto.<span class="fn">substring</span>(<span class="num">1</span>).<span class="fn">toLowerCase</span>();
+    }
+}</pre>
+
+  <div class="danger-box"><strong>&iexcl;No olvides <code>@Component</code>!</strong>
+    <code>ProductoService</code> inyecta <code>FormatoUtil</code> por constructor. Sin <code>@Component</code>, Spring no crea el bean
+    y la app NO arranca con: <em>"Parameter 1 of constructor in ProductoService required a bean of type 'FormatoUtil' that could not be found"</em>.
+  </div>
+
+  <!-- Dudas -->
+  <h3 id="dudas">8.4. Dudas que me surgieron (resueltas)</h3>
+
+  <h4>&iquest;El constructor se genera solo con IntelliJ?</h4>
+  <p><strong>S&iacute;.</strong> Los constructores de inyecci&oacute;n son "boilerplate" (c&oacute;digo repetitivo) y el IDE los genera. Pasos:</p>
+  <ol>
+    <li>Coloca el cursor <strong>sobre la l&iacute;nea de la clase</strong> (ej. <code>public class UsuarioService {</code>) o dentro de su cuerpo.</li>
+    <li>Presiona <code>Alt + Insert</code> (men&uacute; <em>Generate</em>).</li>
+    <li>Elige <strong>"Constructor"</strong> y marca el campo a inyectar (ej. <code>usuarioRepository</code>).</li>
+    <li>IntelliJ genera algo como: <code>public UsuarioService(UsuarioRepository usuarioRepository) { this.usuarioRepository = usuarioRepository; }</code></li>
+  </ol>
+  <div class="info-box"><strong>&iquest;Por qu&eacute; es obligatorio?</strong> Porque el campo es <code>final</code> y en Java un campo <code>final</code> debe asignarse en su declaraci&oacute;n o en el constructor. Sin el constructor, el compilador marca: <em>"variable usuarioRepository might not have been initialized"</em>. Ese era el error que ten&iacute;a mi <code>UsuarioService</code> al principio.</div>
+
+  <h4>&iquest;Y los m&eacute;todos <code>registrar</code>, <code>listar</code>, <code>obtener</code>, <code>login</code>?</h4>
+  <p><strong>Esos NO se generan autom&aacute;ticamente.</strong> El generador de IntelliJ (<code>Alt + Insert</code>) solo crea boilerplate (constructores, getters/setters, <code>equals</code>/<code>hashCode</code>/<code>toString</code>). Los m&eacute;todos de negocio son <strong>tu l&oacute;gica</strong>: IntelliJ no puede saber qu&eacute; quieres hacer, as&iacute; que los <strong>digitas a mano</strong>.</p>
+  <div class="info-box"><strong>&iquest;De d&oacute;nde salen esos nombres?</strong> No salen de ning&uacute;n generador: los defines t&uacute;. Pero siguen un patr&oacute;n basado en los m&eacute;todos que ya existen en <code>JpaRepository</code>:
+    <ul>
+      <li><code>save(...)</code> &rarr; de ah&iacute; sale <code>registrar(...)</code>.</li>
+      <li><code>findAll()</code> &rarr; <code>listar()</code>.</li>
+      <li><code>findById(...).orElse(null)</code> &rarr; <code>obtener(id)</code>.</li>
+      <li><code>findByCorreo(...)</code> (m&eacute;todo de mi repositorio) &rarr; <code>login(...)</code>.</li>
+    </ul>
+    O sea: el nombre de cada m&eacute;todo del service "envuelve" a un m&eacute;todo del repository, d&aacute;ndole significado de negocio.
+  </div>
+
+  <h4>&iquest;No era el controller quien ten&iacute;a <code>registrar</code>, <code>listar</code>, etc.?</h4>
+  <p><strong>No, es al rev&eacute;s.</strong> Esas firmas viven en el <strong>Service</strong>. El <strong>Controller</strong> solo expone el endpoint y <strong>llama</strong> al service. Ejemplo en mi <code>UsuarioController</code>:</p>
+  <pre>
+<span class="ann">@PostMapping</span>(<span class="str">"/registrar"</span>)
+<span class="kwd">public</span> ResponseEntity&lt;Usuario&gt; <span class="fn">registrar</span>(<span class="ann">@RequestBody</span> Usuario usuario){
+    Usuario usuarioRegistrado = usuarioService.<span class="fn">registrar</span>(usuario);  <span class="cmt">// &lt;-- llama al SERVICE</span>
+    <span class="kwd">return</span> ResponseEntity.<span class="fn">ok</span>(usuarioRegistrado);
+}</pre>
+  <div class="danger-box"><strong>Resumen de la duda:</strong>
+    <ul>
+      <li><strong>Constructor</strong> &rarr; se GENERA con <code>Alt + Insert</code> (boilerplate, "esqueleto").</li>
+      <li><strong>M&eacute;todos de negocio</strong> &rarr; se DIGITAN a mano (l&oacute;gica, "&oacute;rganos"). El generador no los crea.</li>
+      <li><strong>Controller vs Service</strong> &rarr; el controller llama, el service implementa.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<div class="section-card" id="dto">
+  <h2>9. Paso 7: DTO LoginRequest.java</h2>
+
+  <div class="info-box"><strong>Prop&oacute;sito:</strong> Un DTO (Data Transfer Object) es un "contenedor de datos" que define exactamente qu&eacute; recibe (o devuelve) la API, sin exponer la entidad completa. Aqu&iacute; <code>LoginRequest</code> solo trae <code>correo</code> y <code>clave</code>.</div>
+
+  <pre>
+<span class="kwd">package</span> cibertec.demo.dto;
+
+<span class="kwd">import</span> lombok.Data;
+
+<span class="ann">@Data</span>
+<span class="kwd">public class</span> <span class="cls">LoginRequest</span> {
+    <span class="kwd">private</span> String correo;
+    <span class="kwd">private</span> String clave;
+}</pre>
+  <p><code>@Data</code> de Lombok genera getters y setters. El controller lo recibe con <code>@RequestBody</code> y lee <code>getCorreo()</code> / <code>getClave()</code>.</p>
+</div>
+
+<!-- ============================================================ -->
+<div class="section-card" id="controllers">
+  <h2>10. Paso 8: Controladores REST &mdash; Los 18 endpoints</h2>
+
+  <h3 id="auth-ctrl">10.1. AuthController.java</h3>
+  <div class="info-box"><strong>Prop&oacute;sito:</strong> Endpoint de inicio de sesi&oacute;n. Recibe correo y clave (en un DTO) y valida con <code>UsuarioService.login</code>.</div>
+
+  <pre>
+<span class="kwd">package</span> cibertec.demo.controllers;
+
+<span class="kwd">import</span> cibertec.demo.dto.LoginRequest;
+<span class="kwd">import</span> cibertec.demo.entities.Usuario;
+<span class="kwd">import</span> cibertec.demo.service.UsuarioService;
+<span class="kwd">import</span> org.springframework.http.ResponseEntity;
+<span class="kwd">import</span> org.springframework.web.bind.annotation.*;
+
+<span class="ann">@RestController</span>
+<span class="ann">@RequestMapping</span>(<span class="str">"/api/auth"</span>)
+<span class="kwd">public class</span> <span class="cls">AuthController</span> {
+
+    <span class="kwd">private final</span> UsuarioService usuarioService;
+
+    <span class="kwd">public</span> <span class="fn">AuthController</span>(UsuarioService usuarioService) {
+        <span class="kwd">this</span>.usuarioService = usuarioService;
+    }
+
+    <span class="ann">@PostMapping</span>(<span class="str">"/login"</span>)
+    <span class="kwd">public</span> ResponseEntity&lt;?&gt; <span class="fn">login</span>(<span class="ann">@RequestBody</span> LoginRequest loginRequest){
+        Usuario usuario = usuarioService.<span class="fn">login</span>(loginRequest.<span class="fn">getCorreo</span>(), loginRequest.<span class="fn">getClave</span>());
+        <span class="kwd">if</span>(usuario == <span class="kwd">null</span>){
+            <span class="kwd">return</span> ResponseEntity.<span class="fn">status</span>(<span class="num">401</span>).<span class="fn">body</span>(<span class="str">"Credenciales inv&aacute;lidas"</span>);
+        } <span class="kwd">else</span> {
+            <span class="kwd">return</span> ResponseEntity.<span class="fn">ok</span>(usuario);
+        }
+    }
+}</pre>
+  <ul>
+    <li><code>@RequestBody LoginRequest</code> &rarr; recibe el JSON del cuerpo de la petici&oacute;n y lo convierte en objeto.</li>
+    <li><code>ResponseEntity&lt;?&gt;</code> (comod&iacute;n) permite devolver tipos distintos: <code>String</code> (mensaje de error) o <code>Usuario</code>.</li>
+    <li><code>ResponseEntity.status(401)</code> &rarr; HTTP 401 Unauthorized (credenciales inv&aacute;lidas).</li>
+    <li><code>ResponseEntity.ok(usuario)</code> &rarr; HTTP 200 con el usuario.</li>
+  </ul>
+
+  <h3 id="usuario-ctrl">10.2. UsuarioController.java</h3>
+  <pre>
+<span class="kwd">package</span> cibertec.demo.controllers;
+
+<span class="kwd">import</span> cibertec.demo.entities.Usuario;
+<span class="kwd">import</span> cibertec.demo.service.UsuarioService;
+<span class="kwd">import</span> org.springframework.http.ResponseEntity;
+<span class="kwd">import</span> org.springframework.web.bind.annotation.*;
+
+<span class="kwd">import</span> java.util.List;
+
+<span class="ann">@RestController</span>
+<span class="ann">@RequestMapping</span>(<span class="str">"/api/usuarios"</span>)
+<span class="kwd">public class</span> <span class="cls">UsuarioController</span> {
+
+    <span class="kwd">private final</span> UsuarioService usuarioService;
+
+    <span class="kwd">public</span> <span class="fn">UsuarioController</span>(UsuarioService usuarioService) {
+        <span class="kwd">this</span>.usuarioService = usuarioService;
+    }
+
+    <span class="ann">@PostMapping</span>(<span class="str">"/registrar"</span>)
+    <span class="kwd">public</span> ResponseEntity&lt;Usuario&gt; <span class="fn">registrar</span>(<span class="ann">@RequestBody</span> Usuario usuario){
+        Usuario usuarioRegistrado = usuarioService.<span class="fn">registrar</span>(usuario);
+        <span class="kwd">return</span> ResponseEntity.<span class="fn">ok</span>(usuarioRegistrado);
+    }
+
+    <span class="ann">@GetMapping</span>
+    <span class="kwd">public</span> List&lt;Usuario&gt; <span class="fn">listar</span>(){
+        <span class="kwd">return</span> usuarioService.<span class="fn">listar</span>();
+    }
+
+    <span class="ann">@GetMapping</span>(<span class="str">"/{id}"</span>)
+    <span class="kwd">public</span> ResponseEntity&lt;Usuario&gt; <span class="fn">obtener</span>(<span class="ann">@PathVariable</span> Long id){
+        Usuario usuario = usuarioService.<span class="fn">obtener</span>(id);
+        <span class="kwd">if</span> (usuario == <span class="kwd">null</span>){
+            <span class="kwd">return</span> ResponseEntity.<span class="fn">notFound</span>().<span class="fn">build</span>();
+        }
+        <span class="kwd">return</span> ResponseEntity.<span class="fn">ok</span>(usuario);
+    }
+}</pre>
+  <ul>
+    <li><code>@RequestMapping("/api/usuarios")</code> &rarr; <strong>ojo con la barra inicial</strong>. Sin la <code>/</code>, la URL queda mal formada. Fue un detalle que tuve que corregir.</li>
+    <li><code>@GetMapping</code> &rarr; lista todos (HTTP 200 con un array).</li>
+    <li><code>@GetMapping("/{id}")</code> + <code>@PathVariable Long id</code> &rarr; toma el id de la URL. Si no existe, devuelve <code>404 notFound()</code>.</li>
+  </ul>
+
+  <h3 id="producto-ctrl">10.3. ProductoController.java</h3>
+  <pre>
+<span class="kwd">package</span> cibertec.demo.controllers;
+
+<span class="kwd">import</span> cibertec.demo.entities.Producto;
+<span class="kwd">import</span> cibertec.demo.repository.ProductoRepository;
+<span class="kwd">import</span> cibertec.demo.service.ProductoService;
+<span class="kwd">import</span> org.springframework.http.ResponseEntity;
+<span class="kwd">import</span> org.springframework.web.bind.annotation.*;
+
+<span class="kwd">import</span> java.util.List;
+
+<span class="ann">@RestController</span>
+<span class="ann">@RequestMapping</span>(<span class="str">"/api/productos"</span>)
+<span class="kwd">public class</span> <span class="cls">ProductoController</span> {
+
+    <span class="kwd">private final</span> ProductoService productoService;
+    <span class="kwd">private final</span> ProductoRepository productoRepository;
+
+    <span class="kwd">public</span> <span class="fn">ProductoController</span>(ProductoService productoService, ProductoRepository productoRepository) {
+        <span class="kwd">this</span>.productoService = productoService;
+        <span class="kwd">this</span>.productoRepository = productoRepository;
+    }
+
+    <span class="ann">@PostMapping</span>(<span class="str">"/lote"</span>)
+    <span class="kwd">public</span> ResponseEntity&lt;String&gt; <span class="fn">registrarLote</span>(<span class="ann">@RequestBody</span> List&lt;Producto&gt; productos){
+        productoService.<span class="fn">registrarLote</span>(productos);
+        <span class="kwd">return</span> ResponseEntity.<span class="fn">ok</span>(<span class="str">"Productos registrados satisfactoriamente"</span>);
+    }
+
+    <span class="ann">@GetMapping</span>
+    <span class="kwd">public</span> List&lt;Producto&gt; <span class="fn">listar</span>(){
+        <span class="kwd">return</span> productoService.<span class="fn">listarTodos</span>();
+    }
+
+    <span class="ann">@GetMapping</span>(<span class="str">"/{id}"</span>)
+    <span class="kwd">public</span> ResponseEntity&lt;Producto&gt; <span class="fn">obtenerPorId</span>(<span class="ann">@PathVariable</span> Long id){
+        <span class="kwd">return</span> productoRepository.<span class="fn">findById</span>(id)
+                .<span class="fn">map</span>(ResponseEntity::ok)
+                .<span class="fn">orElse</span>(ResponseEntity.<span class="fn">notFound</span>().<span class="fn">build</span>());
+    }
+
+    <span class="ann">@GetMapping</span>(<span class="str">"/buscar/{nombre}"</span>)
+    <span class="kwd">public</span> List&lt;Producto&gt; <span class="fn">buscarPorNombre</span>(<span class="ann">@PathVariable</span> String nombre){
+        <span class="kwd">return</span> productoService.<span class="fn">buscar</span>(nombre);
+    }
+
+    <span class="ann">@PutMapping</span>(<span class="str">"/{id}"</span>)
+    <span class="kwd">public</span> ResponseEntity&lt;Producto&gt; <span class="fn">actualizar</span>(<span class="ann">@PathVariable</span> Long id, <span class="ann">@RequestBody</span> Producto producto){
+        <span class="kwd">return</span> productoRepository.<span class="fn">findById</span>(id)
+                .<span class="fn">map</span>(prod -&gt; {
+                    prod.<span class="fn">setNombre</span>(producto.<span class="fn">getNombre</span>());
+                    prod.<span class="fn">setPrecio</span>(producto.<span class="fn">getPrecio</span>());
+                    Producto actualizado = productoRepository.<span class="fn">save</span>(prod);
+                    <span class="kwd">return</span> ResponseEntity.<span class="fn">ok</span>(actualizado);
+                })
+                .<span class="fn">orElse</span>(ResponseEntity.<span class="fn">notFound</span>().<span class="fn">build</span>());
+    }
+
+    <span class="ann">@GetMapping</span>(<span class="str">"/buscarPorNombre"</span>)
+    <span class="kwd">public</span> ResponseEntity&lt;List&lt;Producto&gt;&gt; <span class="fn">buscarPorNombreParam</span>(<span class="ann">@RequestParam</span> String texto){
+        List&lt;Producto&gt; resultados = productoRepository.<span class="fn">buscarPorNombre</span>(texto);
+        <span class="kwd">if</span>(resultados.<span class="fn">isEmpty</span>()){
+            <span class="kwd">return</span> ResponseEntity.<span class="fn">notFound</span>().<span class="fn">build</span>();
+        }
+        <span class="kwd">return</span> ResponseEntity.<span class="fn">ok</span>(resultados);
+    }
+}</pre>
+
+  <div class="danger-box"><strong>Error que tuve y correg&iacute;:</strong> el m&eacute;todo <code>actualizar</code> lo hab&iacute;a anotado con <code>@GetMapping("/{id}")</code>.
+    Como ya existe <code>obtenerPorId</code> con la misma ruta, se produc&iacute;a un <em>"Ambiguous mapping"</em> y la app no arrancaba.
+    <strong>La soluci&oacute;n:</strong> <code>actualizar</code> debe ser <code>@PutMapping("/{id}")</code>. <code>PUT</code> = actualizar; <code>GET</code> = consultar.
+  </div>
+
+  <h4>@PathVariable vs @RequestParam</h4>
+  <div class="info-box">
+    <code>@PathVariable</code> lee de la ruta: <code>/buscar/Laptop</code> &rarr; <code>nombre="Laptop"</code>.<br>
+    <code>@RequestParam</code> lee del query string: <code>/buscarPorNombre?texto=Lap</code> &rarr; <code>texto="Lap"</code>.
+  </div>
+
+  <h3 id="lista-ctrl">10.4. ListaCompraController.java</h3>
+  <div class="info-box"><strong>Prop&oacute;sito:</strong> El controlador m&aacute;s completo. Gestiona listas de compra, sus items, estados, historial y <strong>paginaci&oacute;n con ordenamiento</strong>.</div>
+
+  <pre>
+<span class="kwd">package</span> cibertec.demo.controllers;
+
+<span class="kwd">import</span> cibertec.demo.entities.ItemLista;
+<span class="kwd">import</span> cibertec.demo.entities.ListaCompra;
+<span class="kwd">import</span> cibertec.demo.entities.Usuario;
+<span class="kwd">import</span> cibertec.demo.repository.ItemListaRepository;
+<span class="kwd">import</span> cibertec.demo.repository.ListaCompraRepository;
+<span class="kwd">import</span> cibertec.demo.repository.UsuarioRepository;
+<span class="kwd">import</span> org.springframework.data.domain.Page;
+<span class="kwd">import</span> org.springframework.data.domain.PageRequest;
+<span class="kwd">import</span> org.springframework.data.domain.Pageable;
+<span class="kwd">import</span> org.springframework.data.domain.Sort;
+<span class="kwd">import</span> org.springframework.http.ResponseEntity;
+<span class="kwd">import</span> org.springframework.web.bind.annotation.*;
+
+<span class="kwd">import</span> java.util.List;
+
+<span class="ann">@RestController</span>
+<span class="ann">@RequestMapping</span>(<span class="str">"/api/listas"</span>)
+<span class="kwd">public class</span> <span class="cls">ListaCompraController</span> {
+
+    <span class="kwd">private final</span> UsuarioRepository usuarioRepository;
+    <span class="kwd">private final</span> ListaCompraRepository listaCompraRepository;
+    <span class="kwd">private final</span> ItemListaRepository itemListaRepository;
+
+    <span class="kwd">public</span> <span class="fn">ListaCompraController</span>(UsuarioRepository usuarioRepository, ListaCompraRepository listaCompraRepository, ItemListaRepository itemListaRepository) {
+        <span class="kwd">this</span>.usuarioRepository = usuarioRepository;
+        <span class="kwd">this</span>.listaCompraRepository = listaCompraRepository;
+        <span class="kwd">this</span>.itemListaRepository = itemListaRepository;
+    }
+
+    <span class="cmt">//Crea una lista SOLO si el usuario existe</span>
+    <span class="ann">@PostMapping</span>(<span class="str">"/{idUsuario}/crear"</span>)
+    <span class="kwd">public</span> ResponseEntity&lt;?&gt; <span class="fn">crear</span>(<span class="ann">@PathVariable</span> Long idUsuario, <span class="ann">@RequestBody</span> ListaCompra listaCompra){
+        Usuario usuario = usuarioRepository.<span class="fn">findById</span>(idUsuario).<span class="fn">orElse</span>(<span class="kwd">null</span>);
+        <span class="kwd">if</span>(usuario == <span class="kwd">null</span>){
+            <span class="kwd">return</span> ResponseEntity.<span class="fn">badRequest</span>().<span class="fn">body</span>(<span class="str">"Usuario no encontrado"</span>);
+        }
+        listaCompra.<span class="fn">setUsuario</span>(usuario);
+        <span class="kwd">return</span> ResponseEntity.<span class="fn">ok</span>(listaCompraRepository.<span class="fn">save</span>(listaCompra));
+    }
+
+    <span class="ann">@PostMapping</span>(<span class="str">"/{idLista}/agregar-item"</span>)
+    <span class="kwd">public</span> ResponseEntity&lt;?&gt; <span class="fn">agregarItem</span>(<span class="ann">@PathVariable</span> Long idLista, <span class="ann">@RequestBody</span> ItemLista itemLista){
+        ListaCompra listaCompra = listaCompraRepository.<span class="fn">findById</span>(idLista).<span class="fn">orElse</span>(<span class="kwd">null</span>);
+        <span class="kwd">if</span>(listaCompra == <span class="kwd">null</span>){
+            <span class="kwd">return</span> ResponseEntity.<span class="fn">notFound</span>().<span class="fn">build</span>();
+        }
+        itemLista.<span class="fn">setLista</span>(listaCompra);
+        <span class="kwd">return</span> ResponseEntity.<span class="fn">ok</span>(itemListaRepository.<span class="fn">save</span>(itemLista));
+    }
+
+    <span class="ann">@PutMapping</span>(<span class="str">"/item/{idItem}/estado"</span>)
+    <span class="kwd">public</span> ResponseEntity&lt;?&gt; <span class="fn">cambiarEstado</span>(<span class="ann">@PathVariable</span> Long idItem, <span class="ann">@RequestParam</span> String estado){
+        <span class="kwd">return</span> itemListaRepository.<span class="fn">findById</span>(idItem)
+                .<span class="fn">map</span>(item -&gt;{
+                    item.<span class="fn">setEstado</span>(estado);
+                    <span class="kwd">return</span> ResponseEntity.<span class="fn">ok</span>(itemListaRepository.<span class="fn">save</span>(item));
+                }).<span class="fn">orElse</span>(ResponseEntity.<span class="fn">notFound</span>().<span class="fn">build</span>());
+    }
+
+    <span class="ann">@GetMapping</span>(<span class="str">"usuario/{idUsuario}"</span>)
+    <span class="kwd">public</span> List&lt;ListaCompra&gt; <span class="fn">historial</span>(<span class="ann">@PathVariable</span> Long idUsuario){
+        <span class="kwd">return</span> listaCompraRepository.<span class="fn">findByUsuarioId</span>(idUsuario);
+    }
+
+    <span class="ann">@GetMapping</span>(<span class="str">"/{idLista}"</span>)
+    <span class="kwd">public</span> ResponseEntity&lt;List&lt;ItemLista&gt;&gt; <span class="fn">detalle</span>(<span class="ann">@PathVariable</span> Long idLista){
+        List&lt;ItemLista&gt; items = itemListaRepository.<span class="fn">detalleLista</span>(idLista);
+        <span class="kwd">if</span> (items.<span class="fn">isEmpty</span>()){
+            <span class="kwd">return</span> ResponseEntity.<span class="fn">noContent</span>().<span class="fn">build</span>();
+        }
+        <span class="kwd">return</span> ResponseEntity.<span class="fn">ok</span>(items);
+    }
+
+    <span class="ann">@GetMapping</span>(<span class="str">"/{idLista}/items"</span>)
+    <span class="kwd">public</span> ResponseEntity&lt;List&lt;ItemLista&gt;&gt; <span class="fn">obtenerItemsPorEstado</span>(<span class="ann">@PathVariable</span> Long idLista, <span class="ann">@RequestParam</span> String estado){
+        List&lt;ItemLista&gt; items = itemListaRepository.<span class="fn">buscarPorEstado</span>(idLista, estado);
+        <span class="kwd">if</span>(items.<span class="fn">isEmpty</span>()){
+            <span class="kwd">return</span> ResponseEntity.<span class="fn">noContent</span>().<span class="fn">build</span>();
+        }
+        <span class="kwd">return</span> ResponseEntity.<span class="fn">ok</span>(items);
+    }
+
+    <span class="ann">@GetMapping</span>(<span class="str">"/usuario/{idUsuario}/paginado"</span>)
+    <span class="kwd">public</span> Page&lt;ListaCompra&gt; <span class="fn">historialPaginado</span>(<span class="ann">@PathVariable</span> Long idUsuario, <span class="ann">@RequestParam</span> <span class="kwd">int</span> page, <span class="ann">@RequestParam</span> <span class="kwd">int</span> size){
+        Pageable pageable = PageRequest.<span class="fn">of</span>(page, size);
+        <span class="kwd">return</span> listaCompraRepository.<span class="fn">findByUsuarioId</span>(idUsuario, pageable);
+    }
+
+    <span class="ann">@GetMapping</span>(<span class="str">"/usuario/{idUsuario}/paginado/ordenado"</span>)
+    <span class="kwd">public</span> Page&lt;ListaCompra&gt; <span class="fn">historialPaginadoOrdenado</span>(
+            <span class="ann">@PathVariable</span> Long idUsuario,
+            <span class="ann">@RequestParam</span> <span class="kwd">int</span> page,
+            <span class="ann">@RequestParam</span> <span class="kwd">int</span> size,
+            <span class="ann">@RequestParam</span>(defaultValue = <span class="str">"fechaCreacion"</span>) String sortBy,
+            <span class="ann">@RequestParam</span>(defaultValue = <span class="str">"desc"</span>) String order
+    ){
+        Sort sort = order.<span class="fn">equalsIgnoreCase</span>(<span class="str">"asc"</span>) ?
+                Sort.<span class="fn">by</span>(sortBy).<span class="fn">ascending</span>() :
+                Sort.<span class="fn">by</span>(sortBy).<span class="fn">descending</span>();
+        Pageable pageable = PageRequest.<span class="fn">of</span>(page, size, sort);
+        <span class="kwd">return</span> listaCompraRepository.<span class="fn">findByUsuarioId</span>(idUsuario, pageable);
+    }
+}</pre>
+
+  <div class="danger-box"><strong>Error que tuve y correg&iacute;:</strong> al agregar el m&eacute;todo <code>historial</code>, lo puse con <code>@GetMapping("/{idLista}")</code> (la misma ruta que <code>detalle</code>) &rarr; mapeo ambiguo.
+    <strong>La soluci&oacute;n:</strong> <code>historial</code> usa <code>@GetMapping("usuario/{idUsuario}")</code>. Ojo: ese es el &uacute;nico <code>@GetMapping</code> del proyecto que no empieza con <code>/</code> (as&iacute; lo tiene el profesor, y funciona porque el prefijo base <code>/api/listas</code> ya lo completa). En general, mejor poner siempre la <code>/</code> inicial.
+  </div>
+
+  <h4>Paginaci&oacute;n: Pageable, PageRequest y Sort</h4>
+  <ul>
+    <li><code>Pageable</code> &rarr; interfaz que representa "qu&eacute; p&aacute;gina y cu&aacute;ntos elementos" (m&aacute;s ordenamiento).</li>
+    <li><code>PageRequest.of(page, size)</code> &rarr; implementaci&oacute;n b&aacute;sica: p&aacute;gina <code>page</code> (empieza en 0) y <code>size</code> elementos por p&aacute;gina.</li>
+    <li><code>PageRequest.of(page, size, sort)</code> &rarr; versi&oacute;n con ordenamiento.</li>
+    <li><code>Sort.by("campo").ascending()</code> &rarr; ordena por el campo indicado; <code>descending()</code> al rev&eacute;s.</li>
+    <li><code>Page&lt;T&gt;</code> &rarr; la respuesta incluye: <code>content</code> (los datos), <code>totalElements</code>, <code>totalPages</code>, <code>number</code>, <code>size</code>, etc.</li>
+  </ul>
+</div>
+
+<!-- ============================================================ -->
+<div class="section-card" id="config">
+  <h2>11. Paso 9: Capa de configuraci&oacute;n</h2>
+
+  <h3 id="security-config">11.1. SecurityConfig.java</h3>
+  <div class="info-box"><strong>Prop&oacute;sito:</strong> Define los usuarios (en memoria) y el cifrador de contrase&ntilde;as. El <code>filterChain</code> roto est&aacute; comentado (ver recuadro).</div>
+
+  <pre>
+<span class="kwd">package</span> cibertec.demo.config;
+
+<span class="kwd">import</span> org.springframework.context.annotation.Bean;
+<span class="kwd">import</span> org.springframework.context.annotation.Configuration;
+<span class="kwd">import</span> org.springframework.security.config.annotation.web.builders.HttpSecurity;
+<span class="kwd">import</span> org.springframework.security.core.userdetails.User;
+<span class="kwd">import</span> org.springframework.security.core.userdetails.UserDetails;
+<span class="kwd">import</span> org.springframework.security.core.userdetails.UserDetailsService;
+<span class="kwd">import</span> org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+<span class="kwd">import</span> org.springframework.security.crypto.password.PasswordEncoder;
+<span class="kwd">import</span> org.springframework.security.provisioning.InMemoryUserDetailsManager;
+<span class="kwd">import</span> org.springframework.security.web.SecurityFilterChain;
+
+<span class="ann">@Configuration</span>
+<span class="kwd">public class</span> <span class="cls">SecurityConfig</span> {
+
+    <span class="ann">@Bean</span>
+    <span class="kwd">public</span> UserDetailsService <span class="fn">userDetailsService</span>(PasswordEncoder encoder){
+        UserDetails admin = User.<span class="fn">builder</span>()
+                .username(<span class="str">"admin"</span>)
+                .password(encoder.<span class="fn">encode</span>(<span class="str">"admin123"</span>))
+                .roles(<span class="str">"ADMIN"</span>)
+                .build();
+        UserDetails user = User.<span class="fn">builder</span>()
+                .username(<span class="str">"user"</span>)
+                .password(encoder.<span class="fn">encode</span>(<span class="str">"user123"</span>))
+                .roles(<span class="str">"USER"</span>)
+                .build();
+        <span class="kwd">return new</span> InMemoryUserDetailsManager(admin, user);
+    }
+
+    <span class="ann">@Bean</span>
+    <span class="kwd">public</span> PasswordEncoder <span class="fn">passwordEncoder</span>(){
+        <span class="kwd">return new</span> BCryptPasswordEncoder();
+    }
+
+<span class="cmt">//    @Bean</span>
+<span class="cmt">//    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{</span>
+<span class="cmt">//        return http</span>
+<span class="cmt">//                .csrf()</span>
+<span class="cmt">//    }</span>
+}</pre>
+
+  <table>
+    <tr><th>Elemento</th><th>&iquest;Qu&eacute; hace?</th></tr>
+    <tr><td><code>@Configuration</code> + <code>@Bean</code></td><td>Marca la clase como fuente de beans (objetos gestionados por Spring).</td></tr>
+    <tr><td><code>InMemoryUserDetailsManager</code></td><td>Guarda los usuarios <strong>en memoria</strong> (no en BD).</td></tr>
+    <tr><td><code>User.builder()</code></td><td>Patr&oacute;n builder para crear un <code>UserDetails</code> con username, password y roles.</td></tr>
+    <tr><td><code>BCryptPasswordEncoder</code></td><td>Cifra contrase&ntilde;as con BCrypt. Guarda el hash, nunca la clave en texto plano.</td></tr>
+  </table>
+
+  <div class="info-box"><strong>Correcci&oacute;n que hice vs el profesor:</strong> el profesor ten&iacute;a <code>UserDetailsService admin = User.builder()...build()</code>, un error de tipos
+    (<code>User.builder().build()</code> devuelve <code>UserDetails</code>, no <code>UserDetailsService</code>) que no compilaba. Yo lo correg&iacute; a <code>UserDetails admin</code>.
+    Adem&aacute;s, su <code>filterChain</code> terminaba en <code>http.csrf()</code> sin <code>.build()</code> (no compilaba); yo lo <strong>coment&eacute;</strong> para que el proyecto corra.
+  </div>
+
+  <div class="warn-box"><strong>&iquest;Qu&eacute; significa que <code>filterChain</code> est&eacute; comentado?</strong>
+    Spring Security usa su <strong>configuraci&oacute;n por defecto</strong>: proteger&aacute; <strong>todos</strong> los endpoints y pide autenticaci&oacute;n.
+    Por eso, al probar con Postman, hay que enviar <strong>Basic Auth</strong> con <code>admin</code>/<code>admin123</code> (ver secci&oacute;n 12).
+    Si quieres permitir todo sin login, descomenta y reemplaza el cuerpo del m&eacute;todo por:
+    <pre style="margin:8px 0;">return http
+        .csrf(csrf -&gt; csrf.disable())
+        .authorizeHttpRequests(auth -&gt; auth.anyRequest().permitAll())
+        .build();</pre>
+  </div>
+
+  <h3 id="login-interceptor">11.2. LoginInterceptor.java</h3>
+  <div class="info-box"><strong>Prop&oacute;sito:</strong> Un interceptor de Spring MVC que se ejecuta <strong>antes</strong> de cada petici&oacute;n (<code>preHandle</code>) y <strong>despu&eacute;s</strong> de enviar la respuesta (<code>afterCompletion</code>). Solo imprime logs en consola.</div>
+
+  <pre>
+<span class="kwd">package</span> cibertec.demo.config;
+
+<span class="kwd">import</span> jakarta.servlet.http.HttpServletRequest;
+<span class="kwd">import</span> jakarta.servlet.http.HttpServletResponse;
+<span class="kwd">import</span> org.jspecify.annotations.Nullable;
+<span class="kwd">import</span> org.springframework.web.servlet.HandlerInterceptor;
+
+<span class="kwd">public class</span> <span class="cls">LoginInterceptor</span> <span class="kwd">implements</span> <span class="ifc">HandlerInterceptor</span> {
+    <span class="ann">@Override</span>
+    <span class="kwd">public boolean</span> <span class="fn">preHandle</span>(HttpServletRequest request, HttpServletResponse response, Object handler){
+        System.out.<span class="fn">println</span>(<span class="str">"--&gt;Pre-Handle"</span> + request.<span class="fn">getMethod</span>() + <span class="str">"-"</span> + request.<span class="fn">getRequestURI</span>());
+        <span class="kwd">return true</span>;
+    }
+
+    <span class="ann">@Override</span>
+    <span class="kwd">public void</span> <span class="fn">afterCompletion</span>(HttpServletRequest request, HttpServletResponse response, Object handler, <span class="ann">@Nullable</span> Exception ex) <span class="kwd">throws</span> Exception {
+        System.out.<span class="fn">println</span>(<span class="str">"----&gt;After-Completion: Respuesta Enviada"</span>);
+    }
+}</pre>
+  <ul>
+    <li><code>preHandle(...)</code> se ejecuta <strong>antes</strong> de llegar al controlador. Si devuelve <code>true</code>, la petici&oacute;n contin&uacute;a; si <code>false</code>, se detiene.</li>
+    <li><code>afterCompletion(...)</code> se ejecuta <strong>despu&eacute;s</strong> de enviarse la respuesta.</li>
+    <li>El nombre "Login" sugiere que en el futuro validar&aacute; sesiones; por ahora solo registra en consola.</li>
+  </ul>
+
+  <h3 id="web-config">11.3. WebConfig.java <span style="color:#dc2626;">(Tiene un error a corregir)</span></h3>
+  <div class="info-box"><strong>Prop&oacute;sito:</strong> Clase que registra los interceptores de Spring MVC mediante <code>WebMvcConfigurer</code>.</div>
+
+  <pre>
+<span class="kwd">package</span> cibertec.demo.config;
+
+<span class="kwd">import</span> org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+<span class="kwd">import</span> org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+<span class="kwd">public class</span> <span class="cls">WebConfig</span> <span class="kwd">implements</span> <span class="ifc">WebMvcConfigurer</span> {
+    <span class="ann">@Override</span>
+    <span class="kwd">public void</span> <span class="fn">addInterceptors</span>(InterceptorRegistry registry) {
+        registry.<span class="fn">addInterceptor</span>(<span class="kwd">new</span> LoginInterceptor());
+    }
+}</pre>
+
+  <div class="danger-box"><strong>Problema: el interceptor NUNCA se registra.</strong>
+    A la clase <code>WebConfig</code> le falta la anotaci&oacute;n <code>@Configuration</code> (o <code>@Component</code>).
+    Sin ella, Spring no detecta la clase y <code>addInterceptors</code> jam&aacute;s se ejecuta.
+    <p style="margin-top:8px;"><strong>Para arreglarlo</strong> agrega justo antes de <code>public class WebConfig</code>:
+      <code style="display:inline-block; background:#0f172a; color:#60a5fa; padding:2px 8px; margin-top:4px;">@Configuration</code>
+    </p>
+    <p style="margin-top:8px;">El proyecto <strong>s&iacute; compila y corre sin este arreglo</strong>: solo pierde la funcionalidad del interceptor (no ver&aacute;s los logs).</p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<div class="section-card" id="postman">
+  <h2>12. Paso 10: Pruebas con Postman (muy detallado)</h2>
+
+  <div class="postman"><strong>IMPORTANTE: autenticaci&oacute;n Basic Auth</strong>
+    Como el <code>filterChain</code> est&aacute; comentado, Spring Security protege todos los endpoints con su configuraci&oacute;n por defecto.
+    En Postman, para <strong>cada petici&oacute;n</strong>, ve a la pesta&ntilde;a <strong>Authorization</strong> &rarr; tipo <strong>Basic Auth</strong> y escribe:
+    <pre style="margin:8px 0;">Username: admin
+Password: admin123</pre>
+    Sin esto, todas las peticiones devolver&aacute;n <code>401 Unauthorized</code>.
+    Base URL: <code>http://localhost:8080</code>
+  </div>
+
+  <h3>Flujo recomendado para probar (en orden)</h3>
+
+  <h4>Paso A: Registrar un usuario</h4>
+  <p><strong>POST</strong> &rarr; <code>http://localhost:8080/api/usuarios/registrar</code></p>
+  <p>Pesta&ntilde;a <strong>Body</strong> &rarr; <code>raw</code> &rarr; tipo <code>JSON</code>:</p>
+  <pre>{ "nombre": "Ana", "correo": "ana@mail.com", "clave": "12345" }</pre>
+  <p><strong>Resultado esperado:</strong> <code>200 OK</code> con el JSON del usuario creado (con su <code>id</code>, ej. <code>1</code>).</p>
+
+  <h4>Paso B: Login</h4>
+  <p><strong>POST</strong> &rarr; <code>http://localhost:8080/api/auth/login</code></p>
+  <p>Body JSON:</p>
+  <pre>{ "correo": "ana@mail.com", "clave": "12345" }</pre>
+  <p><strong>Resultado esperado:</strong> <code>200 OK</code> con el usuario (id, nombre, correo, clave). Si la clave est&aacute; mal: <code>401</code> con "Credenciales inv&aacute;lidas".</p>
+
+  <h4>Paso C: Crear una lista de compra (usa el id del usuario)</h4>
+  <p><strong>POST</strong> &rarr; <code>http://localhost:8080/api/listas/1/crear</code> (si Ana qued&oacute; con id 1)</p>
+  <p>Body JSON:</p>
+  <pre>{ "titulo": "Mercado de la semana" }</pre>
+  <p><strong>Resultado esperado:</strong> <code>200 OK</code> con la lista creada (id, titulo, fechaCreacion, usuario). Anota el <code>id</code> de la lista.</p>
+
+  <h4>Paso D: Agregar items a la lista</h4>
+  <p><strong>POST</strong> &rarr; <code>http://localhost:8080/api/listas/1/agregar-item</code></p>
+  <p>Body JSON:</p>
+  <pre>{ "nombreProducto": "Arroz", "cantidad": 2 }</pre>
+  <p>Repite con otro item:</p>
+  <pre>{ "nombreProducto": "Leche", "cantidad": 3 }</pre>
+  <p><strong>Resultado esperado:</strong> <code>200 OK</code> con el item creado (id, nombreProducto, cantidad, estado <code>"PENDIENTE"</code>). Anota los ids de los items.</p>
+
+  <h4>Paso E: Detalle de la lista (items de una lista)</h4>
+  <p><strong>GET</strong> &rarr; <code>http://localhost:8080/api/listas/1</code></p>
+  <p><strong>Resultado esperado:</strong> <code>200 OK</code> con el array de items. Si la lista no tuviera items: <code>204 No Content</code>.</p>
+
+  <h4>Paso F: Cambiar el estado de un item (PENDIENTE &rarr; COMPRADO)</h4>
+  <p><strong>PUT</strong> &rarr; <code>http://localhost:8080/api/listas/item/1/estado?estado=COMPRADO</code></p>
+  <p>Nota: el estado se pasa por <strong>query param</strong> (<code>?estado=...</code>), no por body.</p>
+  <p><strong>Resultado esperado:</strong> <code>200 OK</code> con el item actualizado (<code>estado: "COMPRADO"</code>).</p>
+
+  <h4>Paso G: Items filtrados por estado</h4>
+  <p><strong>GET</strong> &rarr; <code>http://localhost:8080/api/listas/1/items?estado=PENDIENTE</code></p>
+  <p><strong>Resultado esperado:</strong> <code>200 OK</code> con solo los items PENDIENTE (el de "Leche").</p>
+
+  <h4>Paso H: Historial completo del usuario (sin paginar)</h4>
+  <p><strong>GET</strong> &rarr; <code>http://localhost:8080/api/listas/usuario/1</code></p>
+  <p><strong>Resultado esperado:</strong> <code>200 OK</code> con todas las listas del usuario.</p>
+
+  <h4>Paso I: Historial paginado</h4>
+  <p><strong>GET</strong> &rarr; <code>http://localhost:8080/api/listas/usuario/1/paginado?page=0&size=5</code></p>
+  <p><strong>Resultado esperado:</strong> <code>200 OK</code> con una <code>Page</code> JSON: <code>content</code>, <code>totalPages</code>, <code>totalElements</code>, <code>number</code>, <code>size</code>, <code>sort</code>...</p>
+
+  <h4>Paso J: Historial paginado y ordenado</h4>
+  <p><strong>GET</strong> &rarr; <code>http://localhost:8080/api/listas/usuario/1/paginado/ordenado?page=0&size=5&sortBy=fechaCreacion&order=desc</code></p>
+  <p><strong>Resultado esperado:</strong> <code>200 OK</code> con la p&aacute;gina ordenada por <code>fechaCreacion</code> descendente. Prueba cambiando <code>order=asc</code> o <code>sortBy=titulo</code>.</p>
+
+  <h4>Paso K: Productos &mdash; inserci&oacute;n por lotes</h4>
+  <p><strong>POST</strong> &rarr; <code>http://localhost:8080/api/productos/lote</code></p>
+  <p>Body JSON (un <strong>array</strong>):</p>
+  <pre>[ { "nombre": "ARROZ", "precio": 3.5 }, { "nombre": "LECHE", "precio": 4.2 }, { "nombre": "PAN", "precio": 1.5 } ]</pre>
+  <p><strong>Resultado esperado:</strong> <code>200 OK</code> con el mensaje <code>"Productos registrados satisfactoriamente"</code>. F&iacute;jate que los nombres se guardan capitalizados (ARROZ &rarr; Arroz) gracias a <code>FormatoUtil</code>.</p>
+
+  <h4>Paso L: Productos &mdash; listar todos</h4>
+  <p><strong>GET</strong> &rarr; <code>http://localhost:8080/api/productos</code></p>
+  <p><strong>Resultado esperado:</strong> <code>200 OK</code> con el array de productos (con su <code>version</code> inicial).</p>
+
+  <h4>Paso M: Productos &mdash; obtener por id</h4>
+  <p><strong>GET</strong> &rarr; <code>http://localhost:8080/api/productos/1</code></p>
+  <p><strong>Resultado esperado:</strong> <code>200 OK</code> con el producto 1. Si no existe: <code>404</code>.</p>
+
+  <h4>Paso N: Productos &mdash; actualizar (PUT)</h4>
+  <p><strong>PUT</strong> &rarr; <code>http://localhost:8080/api/productos/1</code></p>
+  <p>Body JSON:</p>
+  <pre>{ "nombre": "Arroz Integral", "precio": 5.0 }</pre>
+  <p><strong>Resultado esperado:</strong> <code>200 OK</code> con el producto actualizado (y la <code>version</code> incrementada a 1 por el bloqueo optimista).</p>
+
+  <h4>Paso &Ntilde;: Productos &mdash; buscar por nombre exacto</h4>
+  <p><strong>GET</strong> &rarr; <code>http://localhost:8080/api/productos/buscar/Arroz</code></p>
+  <p>Nota: el nombre va en la <strong>ruta</strong> (<code>@PathVariable</code>).</p>
+  <p><strong>Resultado esperado:</strong> <code>200 OK</code> con los productos cuyo nombre es exactamente "Arroz".</p>
+
+  <h4>Paso O: Productos &mdash; buscar parcial con LIKE</h4>
+  <p><strong>GET</strong> &rarr; <code>http://localhost:8080/api/productos/buscarPorNombre?texto=ro</code></p>
+  <p>Nota: el texto va como <strong>query param</strong> (<code>@RequestParam</code>).</p>
+  <p><strong>Resultado esperado:</strong> <code>200 OK</code> con productos que contengan "ro" en el nombre (ej. Arroz, porque "r" y "o" est&aacute;n en "Arroz" &mdash; insensible a may&uacute;sculas). Si no encuentra nada: <code>404</code>.</p>
+
+  <h4>Paso P: Usuarios &mdash; listar todos y obtener por id</h4>
+  <p><strong>GET</strong> &rarr; <code>http://localhost:8080/api/usuarios</code> &rarr; <code>200</code> con todos los usuarios.</p>
+  <p><strong>GET</strong> &rarr; <code>http://localhost:8080/api/usuarios/1</code> &rarr; <code>200</code> con el usuario 1; <code>404</code> si no existe.</p>
+
+  <h3>Resumen de los 18 endpoints</h3>
+  <table>
+    <tr><th>M&eacute;todo</th><th>URL</th><th>&iquest;Qu&eacute; hace?</th></tr>
+    <tr><td>POST</td><td><code>/api/auth/login</code></td><td>Inicia sesi&oacute;n con correo y clave (DTO)</td></tr>
+    <tr><td>POST</td><td><code>/api/usuarios/registrar</code></td><td>Registra un nuevo usuario</td></tr>
+    <tr><td>GET</td><td><code>/api/usuarios</code></td><td>Lista todos los usuarios</td></tr>
+    <tr><td>GET</td><td><code>/api/usuarios/{id}</code></td><td>Obtiene un usuario por id</td></tr>
+    <tr><td>POST</td><td><code>/api/productos/lote</code></td><td>Inserta varios productos a la vez (array JSON)</td></tr>
+    <tr><td>GET</td><td><code>/api/productos</code></td><td>Lista todos los productos</td></tr>
+    <tr><td>GET</td><td><code>/api/productos/{id}</code></td><td>Obtiene un producto por id</td></tr>
+    <tr><td>PUT</td><td><code>/api/productos/{id}</code></td><td>Actualiza nombre y precio de un producto</td></tr>
+    <tr><td>GET</td><td><code>/api/productos/buscar/{nombre}</code></td><td>Busca por nombre exacto</td></tr>
+    <tr><td>GET</td><td><code>/api/productos/buscarPorNombre?texto=...</code></td><td>Busca parcial (LIKE) e insensible a may&uacute;sculas</td></tr>
+    <tr><td>POST</td><td><code>/api/listas/{idUsuario}/crear</code></td><td>Crea una lista de compra para el usuario</td></tr>
+    <tr><td>POST</td><td><code>/api/listas/{idLista}/agregar-item</code></td><td>Agrega un item a la lista</td></tr>
+    <tr><td>PUT</td><td><code>/api/listas/item/{idItem}/estado?estado=COMPRADO</code></td><td>Cambia el estado de un item</td></tr>
+    <tr><td>GET</td><td><code>/api/listas/usuario/{idUsuario}</code></td><td>Historial (todas las listas del usuario)</td></tr>
+    <tr><td>GET</td><td><code>/api/listas/{idLista}</code></td><td>Detalle: items de una lista</td></tr>
+    <tr><td>GET</td><td><code>/api/listas/{idLista}/items?estado=PENDIENTE</code></td><td>Items de una lista filtrados por estado</td></tr>
+    <tr><td>GET</td><td><code>/api/listas/usuario/{idUsuario}/paginado?page=0&amp;size=5</code></td><td>Historial paginado del usuario</td></tr>
+    <tr><td>GET</td><td><code>/api/listas/usuario/{idUsuario}/paginado/ordenado?page=0&amp;size=5&amp;sortBy=fechaCreacion&amp;order=desc</code></td><td>Historial paginado y ordenado</td></tr>
+  </table>
+
+  <div class="info-box"><strong>Recuerda en Postman:</strong> cuerpo de petici&oacute;n en <code>Body &rarr; raw &rarr; JSON</code> con header <code>Content-Type: application/json</code> (Postman lo agrega solo al elegir JSON), y <strong>Basic Auth</strong> en cada petici&oacute;n.</div>
+</div>
+
+<!-- ============================================================ -->
+<div class="section-card" id="resumen">
+  <h2>13. Resumen: orden de creaci&oacute;n, pendientes y comandos</h2>
+
+  <div class="summary-step"><strong>Paso 1:</strong> Proyecto Maven simple ("pelado") en IntelliJ. <code>pom.xml</code> con <code>parent</code> Spring Boot 4.0.7 y dependencias: Web, Data JPA, Lombok, DevTools, MySQL 8.3.0, Security.</div>
+  <div class="summary-step"><strong>Paso 2:</strong> <code>application.properties</code>: puerto 8080, MySQL <code>localhost:3306/cibertec_demo</code>, <code>ddl-auto=create</code>, <code>show-sql</code>, batching. Levanta XAMPP (Apache + MySQL) y crea la base <code>cibertec_demo</code> en phpMyAdmin.</div>
+  <div class="summary-step"><strong>Paso 3:</strong> Clase principal <code>ReplicaAntesT2Application</code> en <code>cibertec.demo</code>.</div>
+  <div class="summary-step"><strong>Paso 4:</strong> Entidades: <code>Usuario</code>, <code>Producto</code> (con <code>@Version</code>), <code>ListaCompra</code> (relaciones + cascade + orphanRemoval), <code>ItemLista</code> (<code>@JoinColumn</code> + <code>@JsonIgnore</code>).</div>
+  <div class="summary-step"><strong>Paso 5:</strong> Repositorios: 4 interfaces que extienden <code>JpaRepository</code>. Query Methods (<code>findByCorreo</code>, <code>findByNombre</code>, <code>findByUsuarioId</code>) y <code>@Query</code> JPQL con <code>@Param</code>.</div>
+  <div class="summary-step"><strong>Paso 6:</strong> Servicios + util: <code>UsuarioService</code> (constructor con <code>Alt + Insert</code>, m&eacute;todos a mano), <code>ProductoService</code> (batching), <code>FormatoUtil</code> con <code>@Component</code>.</div>
+  <div class="summary-step"><strong>Paso 7:</strong> DTO <code>LoginRequest</code> (correo, clave).</div>
+  <div class="summary-step"><strong>Paso 8:</strong> Controladores: <code>AuthController</code>, <code>UsuarioController</code>, <code>ProductoController</code>, <code>ListaCompraController</code> (18 endpoints).</div>
+  <div class="summary-step"><strong>Paso 9:</strong> Config: <code>SecurityConfig</code> (usuarios en memoria + BCrypt), <code>LoginInterceptor</code>, <code>WebConfig</code> con <code>@Configuration</code>.</div>
+  <div class="summary-step"><strong>Paso 10:</strong> Correr <code>ReplicaAntesT2Application.main()</code>, esperar "Started ReplicaAntesT2Application", y probar con Postman (Basic Auth <code>admin</code>/<code>admin123</code>).</div>
+
+  <h3>Lista de pendientes para que mi proyecto quede "limpio"</h3>
+  <table>
+    <tr><th>Archivo</th><th>Problema</th><th>&iquest;Qu&eacute; hacer?</th></tr>
+    <tr><td><code>WebConfig.java</code></td><td>Sin <code>@Configuration</code> &rarr; el interceptor nunca se registra</td><td>Agregar <code>@Configuration</code> (o <code>@Component</code>)</td></tr>
+    <tr><td><code>SecurityConfig.java</code></td><td><code>filterChain</code> comentado &rarr; todos los endpoints protegidos (hay que usar Basic Auth)</td><td>Dejarlo as&iacute; para practicar, o definir una cadena <code>permitAll()</code></td></tr>
+    <tr><td><code>UsuarioService.login</code></td><td>Compara claves en texto plano</td><td>Mejora opcional: cifrar con BCrypt y usar <code>encoder.matches()</code></td></tr>
+  </table>
+
+  <h3>Comandos &uacute;tiles</h3>
+  <table>
+    <tr><th>Comando Maven</th><th>&iquest;Qu&eacute; hace?</th></tr>
+    <tr><td><code>mvn clean compile</code></td><td>Limpia y compila (detecta errores de compilaci&oacute;n)</td></tr>
+    <tr><td><code>mvn spring-boot:run</code></td><td>Ejecuta la aplicaci&oacute;n desde consola (puerto 8080)</td></tr>
+    <tr><td><code>mvn clean package</code></td><td>Genera el JAR ejecutable en <code>target/</code></td></tr>
+  </table>
+
+  <h3>&iquest;Qu&eacute; sigue despu&eacute;s?</h3>
+  <ul>
+    <li>DELETE para eliminar listas, items y productos.</li>
+    <li>Validaciones con <code>@Valid</code> y <code>jakarta.validation</code>.</li>
+    <li>Autenticaci&oacute;n real: que <code>login</code> genere un <strong>token (JWT)</strong> o use sesiones.</li>
+    <li>Conectar Spring Security con la tabla <code>usuarios</code> (UserDetailsService propio).</li>
+    <li>Pruebas unitarias con JUnit y Mockito.</li>
+  </ul>
+
+  <p style="text-align:center; margin-top:48px; color:#94a3b8;">Gu&iacute;a generada a partir de mi r&eacute;plica. &iexcl;Sigue practicando!</p>
+</div>
+
+</div>
+</body>
+</html>
