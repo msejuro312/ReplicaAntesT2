@@ -1,0 +1,69 @@
+package cibertec.demo.controllers;
+
+import cibertec.demo.entities.Producto;
+import cibertec.demo.repository.ProductoRepository;
+import cibertec.demo.service.ProductoService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/productos")
+public class ProductoController {
+
+    private final ProductoService productoService;
+    private final ProductoRepository productoRepository;
+
+    public ProductoController(ProductoService productoService, ProductoRepository productoRepository) {
+        this.productoService = productoService;
+        this.productoRepository = productoRepository;
+    }
+
+    @PostMapping("/lote")
+    public ResponseEntity<String> registrarLote(@RequestBody List<Producto> productos){
+        productoService.registrarLote(productos);
+        return ResponseEntity.ok("Productos registrados satisfactoriamente");
+    }
+
+    @GetMapping
+    public List<Producto> listar(){
+        return productoService.listarTodos();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Producto> obtenerPorId(@PathVariable Long id){
+        return productoRepository.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/buscar/{nombre}")
+    public List<Producto> buscarPorNombre(@PathVariable String nombre){
+        return productoService.buscar(nombre);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Producto> actualizar(@PathVariable Long id,@RequestBody Producto producto){
+        return productoRepository.findById(id)
+                .map(prod -> {
+                    prod.setNombre(producto.getNombre());
+                    prod.setPrecio(producto.getPrecio());
+                    Producto actualizado = productoRepository.save(prod);
+                    return ResponseEntity.ok(actualizado);
+                })
+                .orElse(ResponseEntity.notFound().build());
+
+    }
+
+    @GetMapping("/buscarPorNombre")
+    public ResponseEntity<List<Producto>> buscarPorNombreParam(@RequestParam String texto){
+        List<Producto> resultados=productoRepository.buscarPorNombre(texto);
+        if(resultados.isEmpty()){
+            return ResponseEntity.notFound().build();
+
+        }
+        return ResponseEntity.ok(resultados);
+    }
+
+}
